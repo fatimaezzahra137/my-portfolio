@@ -1,8 +1,7 @@
 "use client";
 
 import { 
-  Code2, Database, Zap, BookOpen, GraduationCap,
-  Briefcase, Users, Cpu, Trophy, BarChart3 
+  Code2, Zap, BookOpen, GraduationCap, Briefcase
 } from "lucide-react";
 
 export default function About() {
