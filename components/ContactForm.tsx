@@ -38,15 +38,15 @@ export default function ContactForm() {
     try {
       // إرسال الإيميل عبر EmailJS
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        'service_osh46n7',     // Service ID
+        'template_9b9lcmo',    // Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           reply_to: formData.email,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        'n_QLoEzV3_QG2Ygh0'    // Public Key
       );
 
       console.log('Email sent successfully:', result);
@@ -65,7 +65,7 @@ export default function ContactForm() {
     } catch (error) {
       console.error(' Email sending error:', error);
       // @ts-ignore
-      const errorMessage = error?.text || "Something went wrong. Check console.";
+      const errorMessage = error?.text || error?.message || "Something went wrong. Check console.";
       
       toast.error("Failed to send message", {
         description: `Error: ${errorMessage}`,
