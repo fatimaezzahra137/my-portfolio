@@ -4,8 +4,6 @@ import {
   Code2,
   Database,
   Wrench,
-  Cpu,
-  BarChart3,
   Brain,
 } from "lucide-react";
 
