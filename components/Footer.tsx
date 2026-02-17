@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, Instagram } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -77,6 +77,12 @@ export default function Footer() {
                   icon: Linkedin,
                   label: "LinkedIn",
                   color: "hover:bg-blue-700",
+                },
+                {
+                  href: "https://www.instagram.com/youssef_aibi/",
+                  icon: Instagram,
+                  label: "Instagram",
+                  color: "hover:bg-pink-600",
                 },
                 {
                   href: "mailto:youssef.aibi2018@gmail.com",
