@@ -94,8 +94,8 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
                   className={`p-3 bg-gray-900 rounded-xl border border-gray-800 ${social.color} transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-red-500/30`}
                   aria-label={social.label}
                 >
