@@ -19,7 +19,7 @@ const projects: Project[] = [
     title: "Atlas Market Migration",
     description: "Critical migration of retail legacy systems to Oracle Multitenant architecture. Ensured zero data loss and optimized performance for the new environment.",
     image: "/atlas-migration.png", // Add image to public folder
-    github: "https://github.com/youssefaibi2018-code",
+    github: "https://github.com/youssefaibi2018-code/Atlas_Market",
     technologies: ["Oracle Multitenant", "Data Migration", "SQL", "Legacy Systems"],
     category: "Database Migration"
   },
@@ -28,7 +28,7 @@ const projects: Project[] = [
     title: "GYM Project - Data Ingestion & Security",
     description: "Implementation of CSV data ingestion pipelines, robust security protocols, and data reliability checks to ensure data integrity for a fitness management system.",
     image: "/gym-project.png", 
-    github: "https://github.com/youssefaibi2018-code",
+    github: "https://github.com/youssefaibi2018-code/Oracle_DBA_Project",
     technologies: ["SQL", "CSV Ingestion", "Database Security", "Data Reliability"],
     category: "Data Engineering & Security",
   },
@@ -37,7 +37,7 @@ const projects: Project[] = [
     title: "Private Law Research - Maliki Jurisprudence",
     description: "Comparative study between Maliki Jurisprudence and the Moroccan Family Code (Article 231). Demonstrates analytical thinking and legal research capabilities.",
     image: "/law-research.png", 
-    github: "https://github.com/youssefaibi2018-code", 
+    github: "https://github.com/youssefaibi2018-code/Legal-Research-Family-Code-Morocco", 
     technologies: ["Legal Research", "Comparative Analysis", "Moroccan Family Code", "Documentation"],
     category: "Academic Research & Law",
   }
