@@ -76,7 +76,7 @@ export default function About() {
     },
     {
       language: "French",
-      proficiency: "Professional Proficiency",
+      proficiency: "Technical Proficiency",
     },
   ];
 
