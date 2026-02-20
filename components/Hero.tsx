@@ -102,7 +102,7 @@ export default function Hero() {
               Connect with me:
             </p>
             
-            <div className="flex justify-center lg:justify-start gap-6">
+            <div className="flex justify-center lg:justify-start items-start gap-6">
               
               {/* GitHub */}
               <a

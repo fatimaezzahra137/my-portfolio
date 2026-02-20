@@ -50,6 +50,8 @@ export default function Skills() {
         "SQL Developer",
         "Linux/Unix",
         "Git/GitHub",
+        "Jira",
+        "VS Code",
       ],
     },
   ];
