@@ -1,7 +1,7 @@
 "use client";
 
 import { 
-  Code2, Zap, BookOpen, GraduationCap, Briefcase
+  Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages
 } from "lucide-react";
 
 export default function About() {
@@ -62,6 +62,21 @@ export default function About() {
       description: "Conducted comparative studies in Private Law (Maliki Jurisprudence vs Moroccan Family Code). Applied analytical thinking to interpret complex legal texts, a skill now applied to database auditing and logic.",
       year: "Academic Research",
       icon: BookOpen,
+    },
+  ];
+
+  const languages = [
+    {
+      language: "Arabic",
+      proficiency: "Native",
+    },
+    {
+      language: "English",
+      proficiency: "Professional Proficiency",
+    },
+    {
+      language: "French",
+      proficiency: "Professional Proficiency",
     },
   ];
 
@@ -154,6 +169,29 @@ export default function About() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Languages Section */}
+        <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <h3 className="text-2xl font-bold flex items-center gap-2 text-gray-900 mb-6">
+            <Languages className="w-6 h-6 text-red-600" />
+            Languages
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {languages.map((lang, idx) => (
+              <div
+                key={idx}
+                className="p-4 bg-white backdrop-blur-sm rounded-lg border border-gray-200 hover:shadow-md hover:border-red-200 transition-all text-center"
+              >
+                <h4 className="font-bold text-gray-900 text-lg mb-1">
+                  {lang.language}
+                </h4>
+                <p className="text-sm text-gray-600">
+                  {lang.proficiency}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
