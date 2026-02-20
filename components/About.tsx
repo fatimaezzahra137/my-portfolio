@@ -45,7 +45,7 @@ export default function About() {
     {
       school: "Hassan II University",
       certification: "Law Graduate (Private Law)", // الأقدم
-      year: "Graduated",
+      year: "2021",
       icon: GraduationCap,
     },
   ];

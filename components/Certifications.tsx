@@ -50,7 +50,7 @@ const certifications = [
     id: 7,
     title: "Private Law Degree", // الأقدم
     issuer: "Hassan II University",
-    date: "Graduated",
+    date: "2021",
     image: "/university.png",
   }
 ];
