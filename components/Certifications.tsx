@@ -6,52 +6,52 @@ import { Award } from "lucide-react";
 const certifications = [
   {
     id: 1,
-    title: "Oracle Database Administration",
+    title: "Oracle Database Administration", // الأحدث
     issuer: "JobInTech / SUPEMIR",
     date: "2026",
-    image: "/oracle.png", // <-- Zid logo f public
+    image: "/oracle.png",
   },
   {
     id: 2,
-    title: "SQL",
+    title: "CSS",
     issuer: "Codecademy",
-    date: "Dec 2025",
-    image: "/codecademy-sql.png", // <-- Smiha hakka f public
+    date: "Jan 2026",
+    image: "/codecademy-css.png",
   },
   {
     id: 3,
-    title: "How to use AI with SQL",
-    issuer: "Codecademy",
-    date: "Dec 2025",
-    image: "/codecademy-ai.png",
-  },
-  {
-    id: 4,
-    title: "Private Law Degree",
-    issuer: "Hassan II University",
-    date: "Graduated",
-    image: "/university.png", // <-- Zid logo f public
-  },
-  {
-    id: 5,
-    title: "English Level 5",
-    issuer: "American Language Center",
-    date: "Dec 2025",
-    image: "/alc.png", // <-- Zid logo f public
-  },
-  {
-    id: 6,
     title: "HTML",
     issuer: "Codecademy",
     date: "Jan 2026",
     image: "/codecademy-html.png",
   },
   {
-    id: 7,
-    title: "CSS",
+    id: 4,
+    title: "How to use AI with SQL",
     issuer: "Codecademy",
-    date: "Jan 2026",
-    image: "/codecademy-css.png",
+    date: "Dec 2025",
+    image: "/codecademy-ai.png",
+  },
+  {
+    id: 5,
+    title: "SQL",
+    issuer: "Codecademy",
+    date: "Dec 2025",
+    image: "/codecademy-sql.png",
+  },
+  {
+    id: 6,
+    title: "English Level 5",
+    issuer: "American Language Center",
+    date: "Dec 2025",
+    image: "/alc.png",
+  },
+  {
+    id: 7,
+    title: "Private Law Degree", // الأقدم
+    issuer: "Hassan II University",
+    date: "Graduated",
+    image: "/university.png",
   }
 ];
 

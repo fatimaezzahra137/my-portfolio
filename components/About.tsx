@@ -8,27 +8,9 @@ export default function About() {
   const education = [
     {
       school: "JobInTech / SUPEMIR",
-      certification: "Oracle Database Administration Journey",
+      certification: "Oracle Database Administration Journey", // الأحدث
       year: "Present",
       icon: Zap,
-    },
-    {
-      school: "Hassan II University",
-      certification: "Law Graduate (Private Law)",
-      year: "Graduated",
-      icon: GraduationCap,
-    },
-    {
-      school: "Codecademy",
-      certification: "SQL",
-      year: "Dec 2025",
-      icon: BookOpen,
-    },
-    {
-      school: "Codecademy",
-      certification: "How to use AI with SQL",
-      year: "Dec 2025",
-      icon: BookOpen,
     },
     {
       school: "Codecademy",
@@ -43,17 +25,35 @@ export default function About() {
       icon: BookOpen,
     },
     {
+      school: "Codecademy",
+      certification: "How to use AI with SQL",
+      year: "Dec 2025",
+      icon: BookOpen,
+    },
+    {
+      school: "Codecademy",
+      certification: "SQL",
+      year: "Dec 2025",
+      icon: BookOpen,
+    },
+    {
       school: "American Language Center",
       certification: "English Level 5 (Intermediate)",
       year: "Dec 2025",
       icon: BookOpen,
     },
+    {
+      school: "Hassan II University",
+      certification: "Law Graduate (Private Law)", // الأقدم
+      year: "Graduated",
+      icon: GraduationCap,
+    },
   ];
 
   const experience = [
     {
-      title: "Operations & Supervision",
-      description: "Extensive experience in Operations & Supervision. Leveraging this background to build secure and high-performance database environments and manage complex daily tasks.",
+      title: "Operations & Supervision - BIM Supermarket",
+      description: "Extensive experience in Operations & Supervision, including a role as Store Supervisor at BIM Supermarket. Responsible for managing daily operations, staff supervision, and inventory control. Leveraging this background to build secure and high-performance database environments and manage complex daily tasks.",
       year: "Professional Experience",
       icon: Briefcase,
     },
