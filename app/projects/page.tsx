@@ -46,7 +46,7 @@ const projects: Project[] = [
     title: "Green IT Data Platform",
     description: "Architected a data platform for a sustainable Data Center, transforming raw data into a decision-making engine for environmental responsibility.",
     image: "/green-it-platform.png", // Make sure this image is in the /public folder
-    github: "https://github.com/youssefaibi2018-code", // TODO: Update with the correct project repository link
+    github: "https://github.com/GREEN-IT-ORACLE-DATA-ENGINEERING", // TODO: Update with the correct project repository link
     technologies: ["Databricks", "Oracle DB", "Power BI", "Azure", "Data Engineering", "Lakehouse"],
     category: "Data & Sustainability"
   }
@@ -72,11 +72,11 @@ export default function ProjectsPage() {
         </div>
 
         {/* قائمة المشاريع */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
+              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* صورة المشروع */}
