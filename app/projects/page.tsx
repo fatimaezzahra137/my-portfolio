@@ -40,6 +40,15 @@ const projects: Project[] = [
     github: "https://github.com/youssefaibi2018-code/Legal-Research-Family-Code-Morocco", 
     technologies: ["Legal Research", "Comparative Analysis", "Moroccan Family Code", "Documentation"],
     category: "Academic Research & Law",
+  },
+  {
+    id: 4,
+    title: "Green IT Data Platform",
+    description: "Architected a data platform for a sustainable Data Center, transforming raw data into a decision-making engine for environmental responsibility.",
+    image: "/green-it-platform.png", // Make sure this image is in the /public folder
+    github: "https://github.com/youssefaibi2018-code", // TODO: Update with the correct project repository link
+    technologies: ["Databricks", "Oracle DB", "Power BI", "Azure", "Data Engineering", "Lakehouse"],
+    category: "Data & Sustainability"
   }
 ];
 
