@@ -6,11 +6,11 @@ import { Award } from "lucide-react";
 const certifications = [
   {
     id: 1,
-    title: "Oracle Database Administration", // الأحدث
+    title: "Oracle Database Administration",
     issuer: "JobInTech / SUPEMIR",
     date: "2026",
     image: "/oracle.png",
-    link: "#", // TODO: Dir lien dyal certification hna
+    link: "/oracle.png", // هنا بدلها من # لـ /oracle.png
   },
   {
     id: 2,
