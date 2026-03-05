@@ -10,7 +10,6 @@ const certifications = [
     issuer: "JobInTech / SUPEMIR",
     date: "2026",
     image: "/oracle.png",
-    link: "/oracle.png", // هنا بدلها من # لـ /oracle.png
   },
   {
     id: 2,
@@ -18,7 +17,6 @@ const certifications = [
     issuer: "Codecademy",
     date: "Jan 2026",
     image: "/codecademy-css.png",
-    link: "#",
   },
   {
     id: 3,
@@ -26,7 +24,6 @@ const certifications = [
     issuer: "Codecademy",
     date: "Jan 2026",
     image: "/codecademy-html.png",
-    link: "#",
   },
   {
     id: 4,
@@ -34,7 +31,6 @@ const certifications = [
     issuer: "Codecademy",
     date: "Dec 2025",
     image: "/codecademy-ai.png",
-    link: "#",
   },
   {
     id: 5,
@@ -42,7 +38,6 @@ const certifications = [
     issuer: "Codecademy",
     date: "Dec 2025",
     image: "/codecademy-sql.png",
-    link: "#",
   },
   {
     id: 6,
@@ -50,15 +45,13 @@ const certifications = [
     issuer: "American Language Center",
     date: "Dec 2025",
     image: "/alc.png",
-    link: "#",
   },
   {
     id: 7,
-    title: "Private Law Degree", // الأقدم
+    title: "Private Law Degree",
     issuer: "Hassan II University",
     date: "2021",
     image: "/university.png",
-    link: "#",
   }
 ];
 
@@ -109,7 +102,7 @@ export default function Certifications() {
               </div>
 
               <a
-                href={cert.link}
+                href={cert.image}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 px-6 py-2 bg-red-50 text-red-700 font-semibold rounded-lg text-sm hover:bg-red-100 transition-colors w-full sm:w-auto"
