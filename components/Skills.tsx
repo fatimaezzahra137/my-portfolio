@@ -29,6 +29,8 @@ export default function Skills() {
         "PL/SQL",
         "HTML",
         "CSS",
+        "TypeScript",
+        "Bash",
       ],
     },
     {
