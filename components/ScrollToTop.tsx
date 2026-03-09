@@ -31,7 +31,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 p-3 bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition-all z-50 animate-bounce"
+      className="fixed bottom-8 right-8 p-3 bg-[#704630] text-white rounded-full shadow-lg hover:bg-[#5a3826] transition-all z-50 animate-bounce"
       aria-label="Scroll to top"
     >
       <ArrowUp className="w-6 h-6" />

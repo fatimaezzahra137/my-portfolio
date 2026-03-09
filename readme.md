@@ -1,13 +1,13 @@
-#  Youssef Aibi - Portfolio
+#  Fatima Ezzahra BARRADI - Portfolio
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![Next.js](https://img.shields.io/badge/Next.js-15.5-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=for-the-badge&logo=vercel)
 
-A modern, responsive portfolio website for **Youssef Aibi**, showcasing skills in **Oracle Database Administration, Data Cleansing, and Law**. Built with cutting-edge web technologies.
+Portfolio moderne et responsive pour **Fatima Ezzahra BARRADI**, mettant en valeur ses compétences en **Data, Business Intelligence et développement informatique**. Construit avec des technologies web de pointe.
 
-🌐 **Live Demo:** [https://youssef-aibi.vercel.app](https://youssef-aibi.vercel.app)
+🌐 **Live Demo:** `https://<your-vercel-app-url>`
 
 ---
 
@@ -15,8 +15,8 @@ A modern, responsive portfolio website for **Youssef Aibi**, showcasing skills i
 
 ### 🎯 Core Features
 - **Responsive Design** – Works perfectly on mobile, tablet, and desktop.
-- **Contact Form** – Integrated with EmailJS for direct email delivery.
-- **Modern Animations** – Smooth transitions with Framer Motion.
+- **Contact Form** – Intégration avec EmailJS pour l'envoi d'emails.
+- **Animations Modernes** – Transitions fluides avec Tailwind CSS.
 - **Performance Optimized** – Lighthouse score 95+.
 - **SEO Friendly** – Metadata and structured data included.
 
@@ -34,16 +34,15 @@ A modern, responsive portfolio website for **Youssef Aibi**, showcasing skills i
 ### Frontend
 | Technology | Purpose | Version |
 |------------|---------|---------|
-| **Next.js** | React Framework | 15.5.9 |
+| **Next.js** | React Framework | 15.5.12 |
 | **TypeScript** | Type Safety | 5.x |
 | **Tailwind CSS** | Styling | 3.x |
-| **React** | UI Components | 18.x |
+| **React** | UI Components | 19.x |
 
 ### Integrations
 | Technology | Purpose |
 |------------|---------|
 | **EmailJS** | Email service integration |
-| **Framer Motion** | Animations |
 | **Lucide React** | Icons |
 | **Sonner** | Toast notifications |
 
@@ -52,14 +51,13 @@ A modern, responsive portfolio website for **Youssef Aibi**, showcasing skills i
 |------------|---------|
 | **Vercel** | Hosting & CI/CD |
 | **GitHub** | Version Control |
-| **Google Analytics** | Visitor tracking |
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-yahya-portfolio/
+fatima-portfolio/
 ├── app/                  # Next.js App Router
 │   ├── page.tsx          # Homepage
 │   ├── contact/          # Contact page
@@ -68,17 +66,14 @@ yahya-portfolio/
 │   │   └── page.tsx
 │   ├── layout.tsx        # Root layout
 │   └── globals.css       # Global styles
-├── components/           # React Components
+├── components/           # Composants React
 │   ├── Hero.tsx
 │   ├── About.tsx
 │   ├── Skills.tsx
-│   ├── ProjectCard.tsx
 │   ├── ContactForm.tsx
 │   └── Footer.tsx
-├── lib/                   # Utilities
-│   └── analytics.ts
 ├── public/                # Static assets
-│   ├── yahyaphotopro.png
+│   ├── fatima-photo.png
 │   └── favicon.ico
 ├── .env.local             # Environment variables
 ├── next.config.js         # Next.js configuration
@@ -97,8 +92,8 @@ yahya-portfolio/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/youssefaibi2018-code/your-repo-name
-cd youssef-portfolio
+git clone https://github.com/fatimaezzahra137/your-repo-name
+cd fatima-portfolio
 Install dependencies
 
 npm install
@@ -146,11 +141,8 @@ Copy Service ID, Template ID, and Public Key to .env.local
 
 ## Links
 
-Portfolio Live: https://youssef-aibi.vercel.app
+Portfolio Live: `https://<your-vercel-app-url>`
 
-GitHub Repository: https://github.com/youssefaibi2018-code
+GitHub Repository: https://github.com/fatimaezzahra137
 
 ## License
-
-> *If I can’t even protect my captain’s dream, then whatever ambition I have is nothing but talk.*  
-> — **Roronoa Zoro**, One Piece

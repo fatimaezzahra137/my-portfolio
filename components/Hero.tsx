@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Download, Github, Linkedin, Instagram, Mail } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -10,12 +10,12 @@ export default function Hero() {
       className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
       aria-label="Hero section"
       style={{
-        background: 'linear-gradient(135deg, #fdf2f2 0%, #ffffff 100%)',
+        background: 'linear-gradient(135deg, #F8E8E8 0%, #ffffff 100%)',
       }}
     >
       {/* الخلفيات المتحركة */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#F8E8E8] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-gray-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
       </div>
 
@@ -26,25 +26,24 @@ export default function Hero() {
           {/* العنوان الرئيسي */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              Hello, I'm{" "}
-              <span className="text-red-700">Youssef Aibi</span>
+              Bonjour, je suis{" "}
+              <span className="text-[#704630]">Fatima Ezzahra BARRADI</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-800 font-semibold">
-              Junior Oracle DBA | Law Graduate | Data Specialist
+              Étudiante ingénieure en Data & Business Intelligence
             </p>
           </div>
 
           {/* الوصف */}
           <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Bridging the gap between Legal Rigor and Database Administration. 
-            Specializing in Oracle Multitenant Architecture, RMAN Backup & Recovery, and Data Cleansing (ETL).
+            Développeuse passionnée par la structure des données et l'optimisation, j'allie la logique mathématique au développement informatique. Je vise un stage de fin d'études en Data/IA orienté vers l'analyse, l'automatisation et la valorisation des données.
           </p>
 
           {/* أزرار CTA */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-6">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#704630] text-white font-semibold rounded-lg hover:bg-[#5a3826] hover:shadow-xl transition-all duration-300"
               aria-label="View my projects"
             >
               View My Projects
@@ -52,7 +51,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-red-700 font-semibold rounded-lg border-2 border-red-700 hover:bg-red-50 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#704630] font-semibold rounded-lg border-2 border-[#704630] hover:bg-[#F8E8E8] transition-all duration-300"
               aria-label="Get in touch"
             >
               Get In Touch
@@ -60,10 +59,10 @@ export default function Hero() {
 
             {/* Download CV Button */}
             <a
-              href="/cv.pdf" // <-- Darouri t7et l-CV f dossier public w tsemmih cv.pdf
+              href="/cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              download="Youssef_Aibi_CV.pdf"
+              download="Fatima_Ezzahra_BARRADI_CV.pdf"
               className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300"
             >
               Download CV
@@ -81,7 +80,7 @@ export default function Hero() {
               
               {/* GitHub */}
               <a
-                href="https://github.com/youssefaibi2018-code"
+                href="https://github.com/fatimaezzahra137"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
@@ -95,7 +94,7 @@ export default function Hero() {
               
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/youssef-aibi-99bb39305/"
+                href="https://www.linkedin.com/in/fati-barradi-1b8776312"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center group"
@@ -107,30 +106,16 @@ export default function Hero() {
                 <span className="text-sm font-medium text-gray-700 group-hover:text-blue-600">LinkedIn</span>
               </a>
               
-              {/* Instagram */}
-              <a
-                href="https://www.instagram.com/youssef_aibi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group"
-                aria-label="Instagram profile"
-              >
-                <div className="p-4 bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-pink-600 transition-all duration-300 mb-2 group-hover:bg-pink-600">
-                  <Instagram className="w-7 h-7 text-gray-900 group-hover:text-white transition-colors" />
-                </div>
-                <span className="text-sm font-medium text-gray-700 group-hover:text-pink-600">Instagram</span>
-              </a>
-
               {/* Email */}
               <a
-                href="mailto:youssef.aibi2018@gmail.com"
+                href="mailto:fbaradi52@gmail.com"
                 className="flex flex-col items-center group"
-                aria-label="Email"
+                aria-label="Email me"
               >
-                <div className="p-4 bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-red-600 transition-all duration-300 mb-2 group-hover:bg-red-600">
+                <div className="p-4 bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 hover:border-[#704630] transition-all duration-300 mb-2 group-hover:bg-[#704630]">
                   <Mail className="w-7 h-7 text-gray-900 group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm font-medium text-gray-700 group-hover:text-red-600">Email</span>
+                <span className="text-sm font-medium text-gray-700 group-hover:text-[#704630]">Email</span>
               </a>
               
             </div>
@@ -141,13 +126,13 @@ export default function Hero() {
         <div className="lg:w-1/2 flex justify-center animate-slide-in-left">
           <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
             {/* خلفية دائرية */}
-            <div className="absolute inset-0 bg-gradient-to-r from-red-300 to-gray-400 rounded-full opacity-20 blur-xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#E6C0CB] to-gray-400 rounded-full opacity-20 blur-xl"></div>
             
             {/* صورتك الشخصية */}
             <div className="relative w-full h-full">
               <Image
-                src="/youssef-photo.png"
-                alt="Youssef Aibi - Oracle DBA"
+                src="/fatima-photo.png"
+                alt="Fatima Ezzahra BARRADI - Étudiante ingénieure en Data & Business Intelligence"
                 fill
                 className="object-cover rounded-full border-8 border-white shadow-2xl"
                 priority
@@ -156,7 +141,7 @@ export default function Hero() {
             </div>
             
             {/* عناصر زخرفية */}
-            <div className="absolute -top-3 -right-3 w-12 h-12 bg-red-300 rounded-full opacity-70"></div>
+            <div className="absolute -top-3 -right-3 w-12 h-12 bg-[#E6C0CB] rounded-full opacity-70"></div>
             <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gray-300 rounded-full opacity-50"></div>
           </div>
         </div>

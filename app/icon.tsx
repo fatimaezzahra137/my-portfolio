@@ -14,7 +14,7 @@ export default function Icon() {
       <div
         style={{
           fontSize: 18,
-          background: '#b91c1c', // red-700 matching your theme
+          background: '#704630', // marron principal du thème
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -25,7 +25,7 @@ export default function Icon() {
           fontWeight: 700,
         }}
       >
-        YA
+        FB
       </div>
     ),
     {

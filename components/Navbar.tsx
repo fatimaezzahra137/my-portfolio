@@ -15,35 +15,35 @@ export default function Navbar() {
             aria-label="Home"
           >
             {/* Remplacer YS b photo */}
-            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-red-700">
+            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-[#704630]">
               <Image
-                src="/youssef-photo.png" // <-- Dir tswirtk hna f public folder
-                alt="Youssef Aibi"
+                src="/fatima-photo.png"
+                alt="Fatima Ezzahra BARRADI"
                 width={32}
                 height={32}
                 className="object-cover"
               />
             </div>
-            <span className="text-red-700">Youssef Aibi</span>
+            <span className="text-[#704630]">Fatima Ezzahra BARRADI</span>
           </Link>
 
           {/* Navigation Links */}
           <nav className="flex items-center space-x-8" aria-label="Main navigation">
             <Link
               href="/"
-              className="hover:text-red-700 transition-colors font-medium"
+              className="hover:text-[#704630] transition-colors font-medium"
             >
               Home
             </Link>
             <Link
               href="/projects"
-              className="hover:text-red-700 transition-colors font-medium"
+              className="hover:text-[#704630] transition-colors font-medium"
             >
               Projects
             </Link>
             <Link
               href="/contact"
-              className="hover:text-red-700 transition-colors font-medium"
+              className="hover:text-[#704630] transition-colors font-medium"
             >
               Contact
             </Link>

@@ -1,4 +1,3 @@
-// components/ContactForm.tsx - النسخة الكاملة المعدلة
 "use client";
 
 import { useState } from "react";
@@ -7,6 +6,7 @@ import { Mail, MessageSquare, User } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
+  // État du formulaire
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,6 +14,7 @@ export default function ContactForm() {
   });
   const [isLoading, setIsLoading] = useState(false);
 
+  // Gestion des changements dans les champs
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -24,10 +25,11 @@ export default function ContactForm() {
     }));
   };
 
+  // Soumission du formulaire
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // التحقق من الحقول
+
+    // Vérification des champs obligatoires
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Please fill all fields");
       return;
@@ -36,17 +38,17 @@ export default function ContactForm() {
     setIsLoading(true);
 
     try {
-      // إرسال الإيميل عبر EmailJS
+      // Envoi via EmailJS
       const result = await emailjs.send(
-        'service_osh46n7',     // Service ID
-        'template_9b9lcmo',    // Template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '', // Service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '', // Template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
           reply_to: formData.email,
         },
-        'n_QLoEzV3_QG2Ygh0'    // Public Key
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '' // Public Key
       );
 
       console.log('Email sent successfully:', result);
@@ -55,7 +57,7 @@ export default function ContactForm() {
         description: "I'll be back within 24h",
       });
 
-      // إعادة تعيين الفورم
+      // Réinitialisation du formulaire
       setFormData({
         name: "",
         email: "",
@@ -63,14 +65,14 @@ export default function ContactForm() {
       });
 
     } catch (error) {
-      console.error(' Email sending error:', error);
+      console.error('Email sending error:', error);
       // @ts-ignore
       const errorMessage = error?.text || error?.message || "Something went wrong. Check console.";
-      
+
       toast.error("Failed to send message", {
         description: `Error: ${errorMessage}`,
       });
-      
+
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +84,7 @@ export default function ContactForm() {
       className="w-full max-w-2xl mx-auto space-y-6 animate-fade-in-up"
       aria-label="Contact form"
     >
-      {/* Name Field */}
+      {/* Champ Nom */}
       <div className="space-y-2">
         <label htmlFor="name" className="block font-semibold text-gray-900">
           <User className="w-4 h-4 inline mr-2" />
@@ -95,12 +97,13 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          placeholder="Your full name"          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-gray-900 placeholder-gray-500 transition-smooth"
+          placeholder="Your full name"
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 transition-smooth"
           aria-required="true"
         />
       </div>
 
-      {/* Email Field */}
+      {/* Champ Email */}
       <div className="space-y-2">
         <label htmlFor="email" className="block font-semibold text-gray-900">
           <Mail className="w-4 h-4 inline mr-2" />
@@ -113,13 +116,13 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          placeholder="your.email@example.com"          
-          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-gray-900 placeholder-gray-500 transition-smooth"
+          placeholder="your.email@example.com"
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 transition-smooth"
           aria-required="true"
         />
       </div>
 
-      {/* Message Field */}
+      {/* Champ Message */}
       <div className="space-y-2">
         <label htmlFor="message" className="block font-semibold text-gray-900">
           <MessageSquare className="w-4 h-4 inline mr-2" />
@@ -131,18 +134,18 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          placeholder="Tell me about your project..."          
+          placeholder="Tell me about your project..."
           rows={6}
-          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 text-gray-900 placeholder-gray-500 resize-none transition-smooth"
+          className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 resize-none transition-smooth"
           aria-required="true"
         />
       </div>
 
-      {/* Submit Button */}
+      {/* Bouton d’envoi */}
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full py-3 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-1 transition-smooth hover:shadow-red-200"
+        className="w-full py-3 bg-gradient-to-r from-[#704630] to-[#5a3826] text-white font-semibold rounded-lg hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-1 transition-smooth hover:shadow-[#F8E8E8]"
         aria-busy={isLoading}
       >
         {isLoading ? (

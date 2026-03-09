@@ -2,8 +2,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Youssef Aibi",
-  description: "Get in touch with Youssef Aibi, Junior Oracle DBA & Law Graduate",
+  title: "Contact | Fatima Ezzahra BARRADI",
+  description: "Contactez Fatima Ezzahra BARRADI pour discuter de projets en Data, IA, ou pour toute collaboration.",
 };
 
 export default function ContactLayout({

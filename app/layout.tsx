@@ -18,41 +18,43 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Youssef Aibi | Junior Oracle DBA & Law Graduate",
-  description: 
-    "Portfolio of Youssef Aibi - Junior Oracle DBA, Law Graduate, and Data Cleansing Specialist. Specializing in Multitenant Architecture, RMAN, and ETL.",
+  title: "Fatima Ezzahra BARRADI | Étudiante Ingénieure en Data & BI",
+  description:
+    "Portfolio de Fatima Ezzahra BARRADI, étudiante ingénieure en Data & Business Intelligence. Passionnée par la structure des données, l'optimisation et l'IA.",
   keywords: [
-    "Oracle DBA",
-    "Database Administration",
-    "Data Cleansing",
-    "Migration Specialist",
+    "Data",
+    "Business Intelligence",
+    "Python",
     "SQL",
-    "RMAN",
-    "Law Graduate",
+    "Machine Learning",
+    "Flask",
+    "Django",
+    "Data Analysis",
+    "Fatima Ezzahra BARRADI",
   ],
-  authors: [{ name: "Youssef Aibi" }],
+  authors: [{ name: "Fatima Ezzahra BARRADI" }],
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://youssef-aibi.vercel.app",
-    siteName: "Youssef Aibi Portfolio",
-    title: "Youssef Aibi | Junior Oracle DBA & Law Graduate",
+    locale: "fr_FR",
+    url: "https://<your-vercel-app-url>", // Mettez à jour avec votre URL
+    siteName: "Portfolio de Fatima Ezzahra BARRADI",
+    title: "Fatima Ezzahra BARRADI | Étudiante Ingénieure en Data & BI",
     description:
-      "Explore my projects in Oracle Database Administration, Data Migration, and Legal Research.",
+      "Découvrez les projets de Fatima Ezzahra BARRADI en Data, IA et développement web.",
     images: [
       {
-        url: "https://youssef-aibi.vercel.app/og-image.png",
+        url: "https://<your-vercel-app-url>/og-image.png", // Mettez à jour avec votre URL
         width: 1200,
         height: 630,
-        alt:  "Youssef Aibi Portfolio",
+        alt: "Portfolio de Fatima Ezzahra BARRADI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Youssef Aibi | Junior Oracle DBA & Law Graduate",
+    title: "Fatima Ezzahra BARRADI | Étudiante Ingénieure en Data & BI",
     description:
-      "Portfolio of Youssef Aibi - Junior Oracle DBA, Law Graduate, and Data Cleansing Specialist.",
+      "Portfolio de Fatima Ezzahra BARRADI, étudiante ingénieure en Data & Business Intelligence.",
   },
 };
 
@@ -67,14 +69,12 @@ export default function RootLayout({
   children: React. ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
+    <html lang="fr" className="scroll-smooth">
+      <body suppressHydrationWarning={true}
         className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900`}
       >
-      <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <Navbar />
+        {children}
         <Footer />
         <ScrollToTop />
         <Toaster position="top-right" />

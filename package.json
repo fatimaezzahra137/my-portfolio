@@ -1,7 +1,7 @@
 {
-  "name": "youssef-aibi-portfolio",
+  "name": "fatima-barradi-portfolio",
   "version": "1.0.0",
-  "description": "Professional portfolio website for Youssef Aibi - Junior Oracle DBA & Law Graduate",
+  "description": "Portfolio de Fatima Ezzahra BARRADI - Étudiante ingénieure en Data & Business Intelligence",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,20 +12,22 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@heroicons/react": "^2.2.0",
+    "emailjs-com": "^3.2.0",
     "lucide-react": "^0.408.0",
-    "next": "^15.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "^15.5.12",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "sonner": "^1.6.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.27",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.8",
     "prettier": "^3.0.0",
     "tailwindcss": "^3.4.19",
-    "typescript": "^5.0.0"
+    "typescript": "^5.9.3"
   }
 }

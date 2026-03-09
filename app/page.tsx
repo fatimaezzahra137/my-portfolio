@@ -23,17 +23,17 @@ export default function Home() {
       <Certifications />
 
       {/* Competitive Mindset Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-red-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-[#F8E8E8]">
         <div className="max-w-4xl mx-auto">
           
-          <div className="p-8 bg-white rounded-2xl border border-red-100 shadow-xl">
+          <div className="p-8 bg-white rounded-2xl border border-[#E6C0CB] shadow-xl">
             {/* Header */}
             <div className="flex items-center justify-center gap-3 mb-8">
-              <div className="p-3 bg-red-100 rounded-full">
-                <Briefcase className="w-8 h-8 text-red-600" />
+              <div className="p-3 bg-[#F8E8E8] rounded-full">
+                <Briefcase className="w-8 h-8 text-[#704630]" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 text-center">
-                Professional Philosophy
+                Philosophie Professionnelle
               </h2>
             </div>
 
@@ -41,14 +41,14 @@ export default function Home() {
               {/* Item 1 */}
               <div className="flex gap-4">
                 <div className="mt-1">
-                  <div className="p-2 bg-red-50 rounded-lg">
-                    <Search className="w-5 h-5 text-red-600" />
+                  <div className="p-2 bg-[#F8E8E8] rounded-lg">
+                    <Search className="w-5 h-5 text-[#704630]" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Analytical Rigor</h3>
+                  <h3 className="font-bold text-gray-900">Rigueur Analytique</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Applying legal analytical skills to interpret complex data structures and ensure logical consistency.
+                    Application de la logique mathématique pour interpréter des structures de données complexes et assurer leur cohérence.
                   </p>
                 </div>
               </div>
@@ -56,14 +56,14 @@ export default function Home() {
               {/* Item 2 */}
               <div className="flex gap-4">
                 <div className="mt-1">
-                  <div className="p-2 bg-blue-50 rounded-lg">
-                    <Shield className="w-5 h-5 text-blue-600" />
+                  <div className="p-2 bg-[#F8E8E8] rounded-lg">
+                    <Shield className="w-5 h-5 text-[#704630]" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Data Integrity</h3>
+                  <h3 className="font-bold text-gray-900">Intégrité des Données</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Uncompromising standards for data security, accuracy, and reliability in every migration project.
+                    Normes strictes pour la sécurité, la précision et la fiabilité des données dans chaque projet.
                   </p>
                 </div>
               </div>
@@ -71,14 +71,14 @@ export default function Home() {
               {/* Item 3 */}
               <div className="flex gap-4">
                 <div className="mt-1">
-                  <div className="p-2 bg-purple-50 rounded-lg">
-                    <Zap className="w-5 h-5 text-purple-600" />
+                  <div className="p-2 bg-[#F8E8E8] rounded-lg">
+                    <Zap className="w-5 h-5 text-[#704630]" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Performance Focus</h3>
+                  <h3 className="font-bold text-gray-900">Performance & Optimisation</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Optimizing database environments for maximum speed, efficiency, and high availability.
+                    Optimisation des environnements de données pour une efficacité et une rapidité maximales.
                   </p>
                 </div>
               </div>
@@ -86,14 +86,14 @@ export default function Home() {
               {/* Item 4 */}
               <div className="flex gap-4">
                 <div className="mt-1">
-                  <div className="p-2 bg-orange-50 rounded-lg">
-                    <Brain className="w-5 h-5 text-orange-600" />
+                  <div className="p-2 bg-[#F8E8E8] rounded-lg">
+                    <Brain className="w-5 h-5 text-[#704630]" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Continuous Growth</h3>
+                  <h3 className="font-bold text-gray-900">Apprentissage Continu</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Committed to lifelong learning, staying ahead with the latest Oracle technologies and AI trends.
+                    Engagement envers l'apprentissage continu des nouvelles technologies Data & IA.
                   </p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function Home() {
             {/* Quote */}
             <div className="mt-10 pt-6 border-t border-gray-100 text-center">
               <p className="italic text-gray-700 font-medium">
-                "Bridging the gap between <span className="text-red-600 font-bold">Legal Logic</span> and <span className="text-red-600 font-bold">Technical Precision</span> to build robust data solutions."
+                "Allier la <span className="text-[#704630] font-bold">Logique Mathématique</span> à la <span className="text-[#704630] font-bold">Précision Technique</span> pour bâtir des solutions de données robustes."
               </p>
             </div>
           </div>
@@ -111,9 +111,9 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white font-semibold rounded-lg hover:bg-red-800 transition-colors shadow-lg hover:shadow-red-200"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-[#704630] text-white font-semibold rounded-lg hover:bg-[#5a3826] transition-colors shadow-lg hover:shadow-[#F8E8E8]"
             >
-              View All Projects & Details
+              Voir tous mes projets
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

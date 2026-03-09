@@ -32,21 +32,18 @@ export default function ContactPage() {
               
               <div className="space-y-6">
                 {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-red-100 rounded-xl">
+                <a href="mailto:fbaradi52@gmail.com" className="flex items-start gap-4 group">
+                  <div className="p-3 bg-red-100 rounded-xl group-hover:bg-red-200 transition-colors">
                     <Mail className="w-6 h-6 text-red-700" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a 
-                      href="mailto:youssef.aibi2018@gmail.com"
-                      className="text-gray-600 hover:text-red-700 transition-colors"
-                    >
-                      youssef.aibi2018@gmail.com
-                    </a>
+                    <p className="text-gray-600 group-hover:text-red-700 transition-colors">
+                      fbaradi52@gmail.com
+                    </p>
                     <p className="text-sm text-gray-500 mt-1">Response within 24 hours</p>
                   </div>
-                </div>
+                </a>
 
                 {/* Location */}
                 <div className="flex items-start gap-4">
@@ -55,23 +52,22 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Based In</h3>
-                    <p className="text-gray-600">Morocco</p>
+                    <p className="text-gray-600">Casablanca, Maroc</p>
                     <p className="text-sm text-gray-500 mt-1">Available for remote work worldwide</p>
                   </div>
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-red-50 rounded-xl">
-                    <Phone className="w-6 h-6 text-red-600" />
+                <a href="tel:0626574046" className="flex items-start gap-4 group">
+                  <div className="p-3 bg-green-100 rounded-xl group-hover:bg-green-200 transition-colors">
+                    <Phone className="w-6 h-6 text-green-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Quick Response</h3>
-                    <p className="text-gray-600 font-medium">0619278473</p>
-                    <p className="text-sm text-gray-500 mt-1">Fast turnaround for urgent projects</p>
-                    <p className="text-sm text-red-600 font-medium mt-2">Let's schedule a call</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <p className="text-gray-600 group-hover:text-green-700 transition-colors">0626574046</p>
+                    <p className="text-sm text-gray-500 mt-1">Available for calls</p>
                   </div>
-                </div>
+                </a>
               </div>
 
               {/* Social Links */}
@@ -80,7 +76,7 @@ export default function ContactPage() {
                 <div className="flex gap-4">
                   {/* GitHub */}
                   <a 
-                    href="https://github.com/youssefaibi2018-code"
+                    href="https://github.com/fatimaezzahra137"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center"
@@ -96,7 +92,7 @@ export default function ContactPage() {
 
                   {/* LinkedIn */}
                   <a 
-                    href="https://www.linkedin.com/in/youssef-aibi-99bb39305/"
+                    href="https://www.linkedin.com/in/fati-barradi-1b8776312"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center"
@@ -132,15 +128,15 @@ export default function ContactPage() {
               <div className="text-center">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-red-500 mx-auto mb-4 relative">
                   <Image
-                    src="/youssef-photo.png"
-                    alt="Youssef Aibi"
+                    src="/fatima-photo.png"
+                    alt="Fatima Ezzahra BARRADI"
                     fill
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">I'm Youssef & I can't wait to hear from you!</h3>
+                <h3 className="font-bold text-gray-900 mb-2">I'm Fatima Ezzahra & I can't wait to hear from you!</h3>
                 <p className="text-gray-600">
-                  Every message brings me joy. Whether it's about Oracle Databases, Data Migration, Law, or just saying hi -
+                  Every message brings me joy. Whether it's about Data Science, Business Intelligence, AI, or just saying hi -
                   I'm excited to connect and help however I can. Your message will make my day!
                 </p>
               </div>
