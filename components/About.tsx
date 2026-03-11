@@ -1,12 +1,12 @@
 "use client";
 
 import { 
-  Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages, Heart
+  Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages
 } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
 export default function About() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t } = useLanguage();
 
   const educationFR = [
     {
