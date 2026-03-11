@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import ProjectModal from '@/components/ProjectModal';
+import { useLanguage } from '@/components/LanguageContext';
 
 interface ProjectDetails {
   problem: { title: string; content: string };
@@ -23,7 +24,7 @@ interface Project {
   details?: ProjectDetails;
 }
 
-const projects: Project[] = [
+const projectsFR: Project[] = [
   {
     id: 1,
     title: "Cinema Analysis Dashboard",
@@ -420,8 +421,813 @@ const projects: Project[] = [
   },
 ];
 
+const projectsEN: Project[] = [
+  {
+    id: 1,
+    title: "Cinema Analysis Dashboard",
+    description: "Interactive dashboard for analyzing film trends and box-office data.",
+    image: "/cinema-analysis-dashboard.png",
+    github: "https://github.com/fatimaezzahra137/cinema-analysis-dashboard",
+    technologies: ["Python", "Data Viz", "Streamlit", "Pandas"],
+    category: "Data Analysis",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "The film industry generates massive volumes of data (budgets, revenues, ratings, genres). The objective was to extract strategic trends from a raw dataset of over 45,000 films (movies_metadata.csv) to understand which factors (genre, release year, budget) truly influence a film's financial success and popularity."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Complex data cleaning: Processed nested JSON formats to extract genres, converted data types (budgets and revenues to numeric), and rigorously handled missing values to avoid statistical bias.",
+          "Feature engineering: Created new metrics, such as profit calculation, and extracted the release year from full dates to enable temporal analysis.",
+          "Exploratory Data Analysis (EDA): Used Pandas and NumPy to aggregate data by genre and year to identify the most profitable categories.",
+          "Advanced data visualization: Developed an interactive dashboard with Streamlit, integrating Matplotlib graphs for revenue distribution by genre and native charts for the evolution of average ratings over time."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Large-scale data processing: Implemented a pipeline capable of automatically cleaning and structuring large CSV files.",
+          "Interactivity and Clarity: Created a decision support tool to instantly visualize the average return on investment by genre.",
+          "Performance optimization: Used Streamlit's caching system (@st.cache_data) to allow for smooth and instantaneous data manipulation, even during complex sorting or filtering by the user."
+        ]
+      }
+    }
+  },
+  {
+    id: 2,
+    title: "Expert Immo Casablanca",
+    description: "Intelligent real estate valuation system for the Casablanca market using real data.",
+    image: "/expert-immo-casablanca.png",
+    github: "https://github.com/fatimaezzahra137/expert-immo-casablanca",
+    technologies: ["Machine Learning", "Real Estate", "Python", "XGBoost", "Scikit-learn"],
+    category: "AI & Real Estate",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "The real estate market in Casablanca is extremely heterogeneous and complex. Classic linear models fail to capture price variations from one neighborhood to another (e.g., Gauthier vs. Oulfa) or the non-linear impact of the number of rooms on the final value. The objective was to create a tool capable of providing accurate and objective estimates, taking into account local geographical and technical specifics."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Rigorous data cleaning: Eliminated duplicates, incomplete listings, and filtered outliers (unrealistic prices, inconsistent areas) to ensure 'Garbage In, Garbage Out' quality.",
+          "AI engine development: Implemented the XGBoost algorithm, a 'Gradient Boosting' model chosen for its ability to sequentially correct prediction errors and handle complex interactions like the relationship between floor, view, and neighborhood.",
+          "Optimization (Fine-Tuning): Precise configuration of hyperparameters (1000 trees, learning rate of 0.05, depth of 8) to balance model accuracy and stability.",
+          "Interactive Interface: Created a web application with Streamlit including an interactive map (Folium) for geographical selection and automatic generation of expert reports in PDF."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "High accuracy: The model achieves an accuracy (R² Score) of up to 98% on test data.",
+          "Mathematical reliability: Implemented K-Fold cross-validation, ensuring 99% model stability and consistent results across all Casablanca neighborhoods.",
+          "Business impact: Reduced the mean absolute error (MAE) through data cleaning, providing users with a reliable estimate in milliseconds and an official document for their procedures."
+        ]
+      }
+    }
+  },
+  {
+    id: 3,
+    title: "BI System & Maintenance Dashboard",
+    description: "Business Intelligence (BI) solution to centralize data, automate budget tracking, and optimize technical interventions.",
+    image: "/maintenance-universitaire-powerbi.png",
+    github: "https://github.com/fatimaezzahra137/maintenance-universitaire-powerbi",
+    technologies: ["Power BI", "Oracle SQL", "PL/SQL", "DAX", "Power Query", "ETL"],
+    category: "Business Intelligence",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "In an industrial or service environment, raw maintenance data is often scattered and difficult to interpret. The objective of this project was to build a complete BI solution capable of centralizing this data, automating budget tracking, and identifying productivity levers to optimize technical interventions."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Data Architecture (Back-end): Design and implementation of a robust database with Oracle SQL. Use of PL/SQL to automate management processes and ensure the integrity of maintenance data.",
+          "Dimensional Modeling: Structuring data according to a Star Schema, optimizing read performance for decision analysis.",
+          "Data Engineering (ETL): Use of Power Query for cleaning, transforming, and loading data from Oracle to Power BI.",
+          "Advanced Analytical Calculations: Creation of complex measures in DAX (Data Analysis Expressions) for calculating Key Performance Indicators (KPIs), budget variances, and productivity rates.",
+          "Strategic Visualization: Development of an interactive dashboard in Power BI integrating Gauges, Ribbon Charts, and Scatter Charts for a comprehensive analysis."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Real-Time Monitoring: Implementation of instant visibility into maintenance budget consumption, helping to avoid financial overruns.",
+          "Operational Optimization: Precise identification of critical periods (seasonality) and productivity gaps, providing decision-makers with the tools needed to reorganize technician teams.",
+          "End-to-End Solution: Demonstration of complete mastery of the data value chain, from SQL extraction to strategic visual decision-making."
+        ]
+      }
+    }
+  },
+  {
+    id: 4,
+    title: "AI Diagnostic Pro",
+    description: "Expert medical diagnostic system for identifying pathologies from symptoms, based on a Random Forest model.",
+    image: "/ia-diagnostic-svm-app.png",
+    github: "https://github.com/fatimaezzahra137/ia-diagnostic-svm-app",
+    technologies: ["Random Forest", "Machine Learning", "Python", "Streamlit", "Health"],
+    category: "AI & Health",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "The objective was to design a medical decision support system capable of analyzing user-entered symptoms to identify potential pathologies. The challenge was to transform a complex medical knowledge base into a classification algorithm that could provide a quick preliminary diagnosis while maintaining a simple user interface."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Structuring medical data: Used a dataset associating symptom combinations with specific diseases (e.g., Fever, Cough, Fatigue).",
+          "Implementing a Random Forest: Chose the Random Forest model for its robustness and ability to handle 'noise' in patient-reported symptoms.",
+          "Developing the diagnostic interface: Created a Streamlit interface allowing for intuitive multi-symptom selection and dynamic display of results.",
+          "Recommendation system: Integrated business logic to display not only the predicted disease but also the pathology description and medical precautions to take.",
+          "Model persistence: Serialized the trained model with Joblib to ensure instant loading of the intelligence for each consultation."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Robust Performance: The Random Forest model ensures stable classification by averaging 100 decision trees, thus limiting isolated diagnostic errors.",
+          "Optimized User Experience: Thanks to caching (@st.cache_resource), the application loads the model only once, allowing for a diagnosis in milliseconds.",
+          "Preventive Tool: The project provides a reliable initial medical orientation, supplemented by precautionary advice, facilitating decision-making before a physical consultation."
+        ]
+      }
+    }
+  },
+  {
+    id: 5,
+    title: "Foot PCA Expert (Multidimensional Scouting Analysis)",
+    description: "Reducing player statistical complexity to identify similar profiles and detect hidden talents via PCA.",
+    image: "/foot-pca-scouting-app.png",
+    github: "https://github.com/fatimaezzahra137/foot-pca-scouting-app",
+    technologies: ["PCA", "Scikit-Learn", "Pandas", "Plotly", "Streamlit", "Sports Analytics"],
+    category: "Data Science",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "In modern football, scouts face thousands of statistics per player (goals, passes, tackles, duels, etc.). The problem is that it's impossible to visualize and compare players on 50 different criteria simultaneously. The objective was to reduce this complexity to identify similar player profiles and detect hidden talents using dimensionality reduction."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Collection and Preparation: Imported and cleaned player performance data with Pandas.",
+          "Dimensionality Reduction (PCA): Applied the Principal Component Analysis algorithm via Scikit-Learn. This technique transformed dozens of statistical variables into two or three main axes (Components) that capture the essence of a player's style.",
+          "Interactive Visualization: Developed an interface with Streamlit integrating Plotly graphs. These graphs allow each player to be placed in a 2D or 3D space: two players close on the graph have statistically similar playing styles, even if they play in different leagues.",
+          "Intelligent Scouting: Implemented filters by team or position to isolate specific profiles and facilitate direct comparison between players."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Data Simplification: Ability to summarize an athlete's complete profile into a single point on a graph, making analysis 10 times faster for a scout.",
+          "Identification of 'Cluster' Profiles: The model naturally groups players by role (e.g., 'Box-to-box', 'Pure Strikers'), allowing for finding ideal replacements based on data rather than intuition.",
+          "Professional Deployment: Published the project on GitHub with an optimized structure (interface_pca.py, requirements.txt), ensuring quick installation and full portability of the scouting tool."
+        ]
+      }
+    }
+  },
+  {
+    id: 6,
+    title: "Smart Immo Predictor (Morocco)",
+    description: "An accessible solution to instantly estimate the value of a property in Morocco via a responsive interface and a predictive model.",
+    image: "/ia-immo-maroc-app.png",
+    github: "https://github.com/fatimaezzahra137/ia-immo-maroc-app",
+    technologies: ["Scikit-Learn", "Joblib", "Streamlit", "Python", "Real Estate"],
+    category: "AI & Real Estate",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "The objective was to design an accessible solution to instantly estimate the value of a property in Morocco. The challenge was to transform a complex calculation logic, based on several variables (area, number of rooms, location), into a fluid user interface where the price adjusts in real-time according to the entered criteria."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Predictive engine development: Created a training script (train.py) using the Scikit-Learn library to model the mathematical relationships between property characteristics and its market price.",
+          "Model persistence: Serialized the artificial intelligence into .pkl format with Joblib, allowing the application to instantly load the model's knowledge without redundant calculations.",
+          "Reactive Interface: Used Streamlit to design an interactive dashboard including sliders (st.slider) and dropdown menus for ergonomic data entry.",
+          "Prediction Logic: Implemented the .predict() method to apply the formulas learned by the AI to the input data in real-time.",
+          "Clean Architecture: Set up a dedicated virtual environment and a professional file structure, facilitating deployment and version management via GitHub."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Instant Estimation: The system calculates and displays the final price as soon as the user modifies a characteristic, offering total interface reactivity.",
+          "AI Popularization: Transformed a complex algorithm into a simple-to-use tool, making real estate expertise accessible to individuals.",
+          "Technical Reliability: Implemented a robust pipeline (Training -> Saving -> Deployment) ensuring the application's stability on a local server or on the Web."
+        ]
+      }
+    }
+  },
+  {
+    id: 7,
+    title: "Intelligent Species Identification System",
+    description: "Automatic classification tool for animal species based on their physical characteristics, using Scikit-Learn and a Streamlit interface.",
+    image: "/animal-id-ai-app.png",
+    github: "https://github.com/fatimaezzahra137/animal-id-ai-app",
+    technologies: ["Scikit-Learn", "Joblib", "Streamlit", "Plotly", "Python"],
+    category: "Machine Learning",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "The objective of this project was to create a tool capable of automatically classifying animal species based on simple physical characteristics (weight, height, ability to fly). The challenge was to train a model capable of accurately distinguishing 8 different species from a small sample of training data."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Dataset creation: Created a database of 24 examples covering 8 animal species (3 examples per species) to ensure a balanced training base.",
+          "Model training: Developed a training script (train_animal.py) using the Scikit-Learn library to create the 'brain' of the application.",
+          "AI persistence: Saved the trained model in .pkl format via Joblib, allowing the application to reuse the acquired knowledge without retraining at each launch.",
+          "Interactive input interface: Designed a Streamlit application integrating a sidebar with numerical sliders (number_input) and radio buttons to enter the animal's characteristics.",
+          "Visualization and Feedback: Used Plotly to generate analysis graphs and implemented a secure display system that warns the user if the model is not loaded."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Verified Learning: Validated the training process with 24 successfully processed examples, confirming the integrity of the knowledge base.",
+          "Intuitive Interface: Deployed an ergonomic tool where the user gets an instant and visual prediction of the animal species.",
+          "Deployment Pipeline: Published the project on GitHub with a professional structure, including management of virtual environments and dependencies for full portability."
+        ]
+      }
+    }
+  },
+  {
+    id: 8,
+    title: "Personal Budget Management Assistant",
+    description: "Intuitive application to track income and expenses, visualize financial health, and save data for long-term monitoring.",
+    image: "/mon-assistant-budget.png",
+    github: "https://github.com/fatimaezzahra137/mon-assistant-budget",
+    technologies: ["Python", "Streamlit", "Finance", "Automation"],
+    category: "Personal Finance",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "Manual management of personal finances is often tedious and prone to errors. The objective was to create an intuitive application allowing a user to track their income and expenses in real-time, visualize their financial health via dynamic indicators, and save their data for long-term monitoring."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Multi-page architecture: Structured the application with Streamlit using a multi-page interface (app.py for the summary and a pages/ folder for entry and analysis) to clearly separate functionalities.",
+          "State Management (Session State): Used st.session_state to maintain the user's transaction memory throughout their navigation, thus preventing data loss when the page is refreshed.",
+          "Dynamic Entry Interface: Developed forms to categorize expenses (Food, Housing, Leisure, etc.) with the choice of currency ($, €, DH).",
+          "Visualization and Monitoring: Implemented a progress bar to compare total expenses to initial income and display the remaining balance.",
+          "Data Persistence: Integrated an export functionality to CSV format with MIME type management to allow the user to save their balance sheet on their computer.",
+          "Deployment and Versioning: Published the project on GitHub with a professional file structure to facilitate installation and execution via a virtual environment."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Fluid User Experience: Created a tool capable of providing an instant financial summary without complex manual calculation.",
+          "Data Portability: Thanks to the download button, the user transforms a temporary browsing session into a permanent tracking document usable in Excel.",
+          "Visual Automation: The application provides an immediate reading of the available budget, helping the user to adjust their purchasing behavior according to their monthly progress."
+        ]
+      }
+    }
+  },
+  {
+    id: 9,
+    title: "Strategic Customer Analysis and Segmentation",
+    description: "Segmentation of a customer database into homogeneous groups to personalize marketing campaigns and optimize retention.",
+    image: "/ia-clustering-3d.png",
+    github: "https://github.com/fatimaezzahra137/ia-clustering-3d",
+    technologies: ["Clustering", "K-Means", "Scikit-Learn", "Pandas", "Plotly", "Streamlit"],
+    category: "Data Visualization",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "For a company, treating all customers the same way is inefficient. The objective of this project was to segment a customer database (Excel/CSV format) into homogeneous groups. By identifying similar purchasing behaviors or profiles, the company can personalize its marketing campaigns and optimize customer retention."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Data engineering: Imported and prepared customer data with Pandas and Openpyxl, including variable normalization to ensure that each criterion (e.g., age vs. purchase amount) has the same weight in the analysis.",
+          "Machine Learning Segmentation: Implemented the clustering algorithm (K-Means or similar via Scikit-Learn) to group customers according to their common characteristics.",
+          "Interactive 3D Visualization: Used Plotly to create a three-dimensional graph to physically visualize the clusters (customer groups) and interpret the boundaries between each segment.",
+          "Dashboard Deployment: Developed a Streamlit application allowing a business user to upload a customer file and instantly obtain a visual and analytical segmentation."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Identification of typical profiles: Extracted clear customer segments (e.g., 'High-potential customers', 'Occasional customers'), allowing for targeted marketing strategies.",
+          "Decision Support Tool: Created an intuitive interface where complex data is transformed into actionable 3D graphics for non-data experts.",
+          "Pipeline Automation: Implemented a robust system integrating virtual environment management and versioning via Git/GitHub, ensuring portability and easy updating of the tool."
+        ]
+      }
+    }
+  },
+  {
+    id: 10,
+    title: "AI-Powered Predictive Maintenance System (IoT & Sensors)",
+    description: "Anticipating industrial failures by analyzing sensor data to move from reactive to predictive maintenance.",
+    image: "/maintenance-predictive-ia.png",
+    github: "https://github.com/fatimaezzahra137/maintenance-predictive-ia",
+    technologies: ["Random Forest", "NumPy", "Streamlit", "Plotly", "FPDF2", "IoT"],
+    category: "Industry 4.0",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "In industry, unplanned failures are costly and slow down production. The objective of this project was to move from reactive to predictive maintenance. By analyzing sensor data (temperature, pressure, vibrations), the AI must be able to anticipate an imminent failure before it occurs, thus allowing for a targeted intervention."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Synthetic data generation: Developed a script (generer_data.py) using NumPy to simulate 100 realistic industrial sensor measurements, including normal operation scenarios and failure anomalies.",
+          "Supervised Learning (Random Forest): Trained a Random Forest model chosen for its ability to handle complex relationships between multiple sensor variables and provide a reliable probability score.",
+          "Real-Time Monitoring Dashboard: Created an interactive Streamlit interface to simulate sensor readings via sliders.",
+          "Alert Visualization: Integrated a dynamic gauge (Plotly Gauge) that displays the risk of failure in real-time as a percentage.",
+          "Automated Reporting: Implemented the FPDF2 library to automatically generate and download an intervention report in PDF as soon as a critical alert threshold (e.g., 90%) is reached."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Visual Precision Indicator: The use of 'gauge+number' mode on the dashboard allows for an instant and precise reading of the risk, facilitating quick decision-making for technicians.",
+          "Workflow Automation: The automatic transition from analysis to PDF report generation reduces administrative documentation time in case of a technical emergency.",
+          "Professional Structure: Implemented a complete pipeline, from data generation (.csv) to model saving (.pkl), all versioned on GitHub with proper dependency management."
+        ]
+      }
+    }
+  },
+  {
+    id: 11,
+    title: "Intelligent Spam Detector (NLP)",
+    description: "System analyzing text content to determine if a message is legitimate (Ham) or unwanted (Spam) via statistical probabilities.",
+    image: "/ia-anti-spam-maroc.png",
+    github: "https://github.com/fatimaezzahra137/ia-anti-spam-maroc",
+    technologies: ["NLP", "Naive Bayes", "Scikit-Learn", "Streamlit", "Plotly", "Spam Detection"],
+    category: "NLP & Security",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "With the explosion in the volume of digital communications, filtering unsolicited messages (Spam) has become crucial. The objective was to develop a system capable of analyzing the text content of a message to automatically determine if it is legitimate (Ham) or unwanted (Spam), using statistical probabilities based on keywords."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Text Vectorization: Implemented a process to transform natural language into numerical data usable by the AI via a Vectorizer (saved as vectorizer.pkl).",
+          "Statistical Modeling (Naive Bayes): Used Bayes' theorem to calculate the probability that a message is spam based on the frequency of certain keywords.",
+          "Training Pipeline: Developed a train_spam.py script to train the model and save the application's 'brain' (modele_spam.pkl).",
+          "Real-Time Detection Interface: Designed a Streamlit application where the user enters their text and instantly gets a diagnosis accompanied by a confidence score.",
+          "Archiving System: Created an automatic recording function in a nouveaux_messages.csv file to collect new entries and allow for continuous model improvement.",
+          "Plotly Visualization: Integrated graphs to visualize the probability score and the distribution of message categories."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "High-Precision Diagnosis: The model can distinguish the linguistic nuances between a professional message and a phishing attempt, providing a clear reliability percentage for each prediction.",
+          "Evolving Learning: Thanks to the automated initialization of the CSV file, the project lays the foundation for a system capable of learning from its new errors over time.",
+          "Professional Deployment: Published the code on GitHub with complete documentation on managing the virtual environment (venv) and dependencies, ensuring full portability of the solution."
+        ]
+      }
+    }
+  },
+  {
+    id: 12,
+    title: "Movie Recommendation System (KNN)",
+    description: "Intelligent recommendation engine suggesting films similar to a given title, based on mathematical proximity calculations.",
+    image: "/AI-CINEMA.png",
+    github: "https://github.com/fatimaezzahra137/AI-CINEMA",
+    technologies: ["KNN", "Scikit-Learn", "Streamlit", "Plotly", "Python"],
+    category: "AI Application",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "With the proliferation of streaming platforms, it has become difficult for users to choose a film from thousands of options. The objective was to develop an intelligent recommendation engine capable of suggesting films similar to a given title, based on mathematical proximity calculations rather than simple categories."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "AI Implementation (KNN): Used the K-Nearest Neighbors algorithm from Scikit-Learn to identify the closest films in a multidimensional space.",
+          "Design and Ergonomics: Customized the interface by injecting CSS code into Streamlit (st.markdown) to improve aesthetics and user experience.",
+          "Interactive Visualization: Created dynamic charts (pie and bar) with Plotly Express to analyze the distribution of genres and scores in the catalog.",
+          "Advanced Features: Implemented an export system to Excel (via BytesIO) allowing users to save their recommendation lists.",
+          "Cloud Deployment: Published the application on Streamlit Cloud via GitHub, making the tool accessible on mobile and web 24/7 via a public URL."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Total Accessibility: Transitioned from a local script to a deployed web application, allowing for universal access without technical installation.",
+          "Recommendation Accuracy: Thanks to the KNN model, the system provides relevant suggestions based on the actual similarity of the data in the donnees_films.csv file.",
+          "Analytical Dashboard: Transformed a raw database into a visual and interactive dashboard facilitating the exploration of the film catalog."
+        ]
+      }
+    }
+  }
+];
+
+const projectsDE: Project[] = [
+  {
+    id: 1,
+    title: "Kino-Analyse-Dashboard",
+    description: "Interaktives Dashboard zur Analyse von Kinotrends und Box-Office-Daten.",
+    image: "/cinema-analysis-dashboard.png",
+    github: "https://github.com/fatimaezzahra137/cinema-analysis-dashboard",
+    technologies: ["Python", "Data Viz", "Streamlit", "Pandas"],
+    category: "Datenanalyse",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Die Filmindustrie erzeugt riesige Datenmengen (Budgets, Einnahmen, Bewertungen, Genres). Das Ziel war es, strategische Trends aus einem Rohdatensatz von über 45.000 Filmen (movies_metadata.csv) zu extrahieren, um zu verstehen, welche Faktoren (Genre, Erscheinungsjahr, Budget) den finanziellen Erfolg und die Popularität eines Films wirklich beeinflussen."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Komplexe Datenbereinigung: Verarbeitung verschachtelter JSON-Formate zur Extraktion von Genres, Konvertierung von Datentypen (Budgets und Einnahmen in numerische Werte) und rigorose Behandlung fehlender Werte, um statistische Verzerrungen zu vermeiden.",
+          "Feature-Engineering: Erstellung neuer Metriken wie der Gewinnberechnung und Extraktion des Erscheinungsjahres aus vollständigen Daten, um eine zeitliche Analyse zu ermöglichen.",
+          "Explorative Datenanalyse (EDA): Verwendung von Pandas und NumPy zur Aggregation von Daten nach Genre und Jahr, um die profitabelsten Kategorien zu identifizieren.",
+          "Fortgeschrittene Datenvisualisierung: Entwicklung eines interaktiven Dashboards mit Streamlit, das Matplotlib-Diagramme für die Umsatzverteilung nach Genre und native Diagramme für die Entwicklung der Durchschnittsbewertungen im Zeitverlauf integriert."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Verarbeitung großer Datenmengen: Implementierung einer Pipeline, die große CSV-Dateien automatisch bereinigen und strukturieren kann.",
+          "Interaktivität und Klarheit: Erstellung eines Entscheidungshilfetools zur sofortigen Visualisierung des durchschnittlichen Return on Investment nach Genre.",
+          "Leistungsoptimierung: Verwendung des Caching-Systems von Streamlit (@st.cache_data), um eine reibungslose und sofortige Datenmanipulation zu ermöglichen, selbst bei komplexen Sortier- oder Filtervorgängen durch den Benutzer."
+        ]
+      }
+    }
+  },
+  {
+    id: 2,
+    title: "Expert Immo Casablanca",
+    description: "Intelligentes Immobilienbewertungssystem für den Markt in Casablanca unter Verwendung von Echtdaten.",
+    image: "/expert-immo-casablanca.png",
+    github: "https://github.com/fatimaezzahra137/expert-immo-casablanca",
+    technologies: ["Machine Learning", "Real Estate", "Python", "XGBoost", "Scikit-learn"],
+    category: "KI & Immobilien",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Der Immobilienmarkt in Casablanca ist äußerst heterogen und komplex. Klassische lineare Modelle erfassen die Preisvariationen zwischen den Stadtteilen (z.B. Gauthier vs. Oulfa) oder die nicht-linearen Auswirkungen der Zimmeranzahl auf den Endwert nicht. Ziel war es, ein Werkzeug zu schaffen, das präzise und objektive Schätzungen unter Berücksichtigung lokaler geografischer und technischer Besonderheiten liefert."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Strenge Datenbereinigung: Beseitigung von Duplikaten, unvollständigen Anzeigen und Filterung von Ausreißern (unrealistische Preise, inkonsistente Flächen), um die Qualität nach dem 'Garbage In, Garbage Out'-Prinzip zu gewährleisten.",
+          "Entwicklung der KI-Engine: Implementierung des XGBoost-Algorithmus, ein 'Gradient Boosting'-Modell, das aufgrund seiner Fähigkeit ausgewählt wurde, Vorhersagefehler sequenziell zu korrigieren und komplexe Interaktionen wie das Verhältnis zwischen Etage, Aussicht und Stadtteil zu bewältigen.",
+          "Optimierung (Fine-Tuning): Präzise Konfiguration der Hyperparameter (1000 Bäume, Lernrate von 0.05, Tiefe von 8), um Präzision und Modellstabilität auszugleichen.",
+          "Interaktive Benutzeroberfläche: Erstellung einer Webanwendung mit Streamlit, die eine interaktive Karte (Folium) für die geografische Auswahl und die automatische Erstellung von Gutachten im PDF-Format enthält."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Hohe Präzision: Das Modell erreicht eine Genauigkeit (R²-Score) von bis zu 98% auf den Testdaten.",
+          "Mathematische Zuverlässigkeit: Durchführung einer Kreuzvalidierung (K-Fold), die eine Modellstabilität von 99% gewährleistet und konsistente Ergebnisse für alle Stadtteile von Casablanca sicherstellt.",
+          "Geschäftliche Auswirkungen: Reduzierung des mittleren absoluten Fehlers (MAE) durch Datenbereinigung, was den Benutzern eine zuverlässige Schätzung in Millisekunden und ein offizielles Dokument für ihre Formalitäten bietet."
+        ]
+      }
+    }
+  },
+  {
+    id: 3,
+    title: "BI-System & Wartungs-Dashboard",
+    description: "Business Intelligence (BI)-Lösung zur Zentralisierung von Daten, Automatisierung der Budgetverfolgung und Optimierung technischer Eingriffe.",
+    image: "/maintenance-universitaire-powerbi.png",
+    github: "https://github.com/fatimaezzahra137/maintenance-universitaire-powerbi",
+    technologies: ["Power BI", "Oracle SQL", "PL/SQL", "DAX", "Power Query", "ETL"],
+    category: "Business Intelligence",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "In einem Industrie- oder Dienstleistungsumfeld sind Wartungsrohdaten oft verstreut und schwer zu interpretieren. Ziel dieses Projekts war es, eine vollständige BI-Lösung aufzubauen, die diese Daten zentralisieren, die Budgetverfolgung automatisieren und Produktivitätshebel zur Optimierung technischer Eingriffe identifizieren kann."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Datenarchitektur (Back-End): Entwurf und Implementierung einer robusten Datenbank mit Oracle SQL. Verwendung von PL/SQL zur Automatisierung von Verwaltungsprozessen und Gewährleistung der Integrität von Wartungsdaten.",
+          "Dimensionale Modellierung: Strukturierung der Daten nach einem Sternschema (Star Schema), um die Leseleistung für Entscheidungsanalysen zu optimieren.",
+          "Data Engineering (ETL): Verwendung von Power Query zur Bereinigung, Transformation und zum Laden von Daten von Oracle nach Power BI.",
+          "Fortgeschrittene analytische Berechnungen: Erstellung komplexer Kennzahlen in DAX (Data Analysis Expressions) zur Berechnung von Key Performance Indicators (KPIs), Budgetabweichungen und Produktivitätsraten.",
+          "Strategische Visualisierung: Entwicklung eines interaktiven Dashboards in Power BI mit Gauges, Ribbon Charts und Scatter Charts für eine umfassende Analyse."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Echtzeit-Überwachung: Implementierung einer sofortigen Sichtbarkeit des Wartungsbudgetverbrauchs, um finanzielle Überschreitungen zu vermeiden.",
+          "Operative Optimierung: Präzise Identifizierung kritischer Zeiträume (Saisonalität) und Produktivitätslücken, um Entscheidungsträgern die notwendigen Werkzeuge zur Reorganisation von Technikerteams zu bieten.",
+          "End-to-End-Lösung: Demonstration der vollständigen Beherrschung der Datenwertschöpfungskette, von der SQL-Extraktion bis zur strategischen visuellen Entscheidungsfindung."
+        ]
+      }
+    }
+  },
+  {
+    id: 4,
+    title: "AI Diagnostic Pro",
+    description: "Medizinisches Expertensystem zur Diagnose von Pathologien anhand von Symptomen, basierend auf einem Random Forest-Modell.",
+    image: "/ia-diagnostic-svm-app.png",
+    github: "https://github.com/fatimaezzahra137/ia-diagnostic-svm-app",
+    technologies: ["Random Forest", "Machine Learning", "Python", "Streamlit", "Health"],
+    category: "AI & Health",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Ziel war es, ein medizinisches Entscheidungsunterstützungssystem zu entwickeln, das vom Benutzer eingegebene Symptome analysieren kann, um potenzielle Pathologien zu identifizieren. Die Herausforderung bestand darin, eine komplexe medizinische Wissensbasis in einen Klassifikationsalgorithmus umzuwandeln, der eine schnelle vorläufige Diagnose liefern kann, während eine einfache Benutzeroberfläche erhalten bleibt."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Strukturierung medizinischer Daten: Verwendung eines Datensatzes, der Symptomkombinationen mit spezifischen Krankheiten verknüpft (z. B. Fieber, Husten, Müdigkeit).",
+          "Implementierung eines Random Forest: Wahl des Random Forest-Modells aufgrund seiner Robustheit und Fähigkeit, 'Rauschen' in den von Patienten gemeldeten Symptomen zu bewältigen.",
+          "Entwicklung der Diagnoseschnittstelle: Erstellung einer Streamlit-Oberfläche, die eine intuitive Mehrfachauswahl von Symptomen und eine dynamische Anzeige der Ergebnisse ermöglicht.",
+          "Empfehlungssystem: Integration einer Geschäftslogik, um nicht nur die vorhergesagte Krankheit, sondern auch die Beschreibung der Pathologie und die zu treffenden medizinischen Vorsichtsmaßnahmen anzuzeigen.",
+          "Modellpersistenz: Serialisierung des trainierten Modells mit Joblib, um ein sofortiges Laden der Intelligenz bei jeder Konsultation zu gewährleisten."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Robuste Leistung: Das Random Forest-Modell gewährleistet eine stabile Klassifizierung durch Mittelung von 100 Entscheidungsbäumen und begrenzt so isolierte Diagnosefehler.",
+          "Optimierte Benutzererfahrung: Dank Caching (@st.cache_resource) lädt die Anwendung das Modell nur einmal, was eine Diagnose in Millisekunden ermöglicht.",
+          "Präventives Werkzeug: Das Projekt bietet eine zuverlässige erste medizinische Orientierung, ergänzt durch Vorsorgeratschläge, und erleichtert so die Entscheidungsfindung vor einer physischen Konsultation."
+        ]
+      }
+    }
+  },
+  {
+    id: 5,
+    title: "Foot PCA Expert (Multidimensionale Scouting-Analyse)",
+    description: "Reduzierung der statistischen Komplexität von Spielern, um ähnliche Profile zu identifizieren und verborgene Talente mittels PCA zu entdecken.",
+    image: "/foot-pca-scouting-app.png",
+    github: "https://github.com/fatimaezzahra137/foot-pca-scouting-app",
+    technologies: ["PCA", "Scikit-Learn", "Pandas", "Plotly", "Streamlit", "Sports Analytics"],
+    category: "Data Science",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Im modernen Fußball sehen sich Scouts mit tausenden von Statistiken pro Spieler konfrontiert (Tore, Pässe, Tacklings, Zweikämpfe usw.). Das Problem ist, dass es unmöglich ist, Spieler anhand von 50 verschiedenen Kriterien gleichzeitig zu visualisieren und zu vergleichen. Ziel war es, diese Komplexität zu reduzieren, um ähnliche Spielerprofile zu identifizieren und verborgene Talente mithilfe der Dimensionsreduktion zu entdecken."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Sammlung und Vorbereitung: Import und Bereinigung von Spielerleistungsdaten mit Pandas.",
+          "Dimensionsreduktion (PCA): Anwendung des Algorithmus der Hauptkomponentenanalyse (Principal Component Analysis) über Scikit-Learn. Diese Technik ermöglichte es, dutzende statistische Variablen in zwei oder drei Hauptachsen (Komponenten) umzuwandeln, die das Wesentliche des Spielstils eines Spielers erfassen.",
+          "Interaktive Visualisierung: Entwicklung einer Schnittstelle mit Streamlit unter Integration von Plotly-Diagrammen. Diese Diagramme ermöglichen es, jeden Spieler in einem 2D- oder 3D-Raum zu verorten: Zwei Spieler, die im Diagramm nah beieinander liegen, haben statistisch ähnliche Spielstile, auch wenn sie in verschiedenen Ligen spielen.",
+          "Intelligentes Scouting: Implementierung von Filtern nach Team oder Position, um spezifische Profile zu isolieren und den direkten Vergleich zwischen Spielern zu erleichtern."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Datenvereinfachung: Fähigkeit, das komplette Profil eines Athleten in einem einzigen Punkt auf einem Diagramm zusammenzufassen, was die Analyse für einen Scout 10-mal schneller macht.",
+          "Identifizierung von 'Cluster'-Profilen: Das Modell gruppiert Spieler natürlich nach Rolle (z. B. 'Box-to-Box', 'Reine Stürmer'), was es ermöglicht, ideale Ersatzspieler basierend auf Daten statt auf Intuition zu finden.",
+          "Professionelle Bereitstellung: Veröffentlichung des Projekts auf GitHub mit einer optimierten Struktur (interface_pca.py, requirements.txt), die eine schnelle Installation und volle Portabilität des Scouting-Tools gewährleistet."
+        ]
+      }
+    }
+  },
+  {
+    id: 6,
+    title: "Smart Immo Predictor (Marokko)",
+    description: "Eine zugängliche Lösung zur sofortigen Schätzung des Werts einer Immobilie in Marokko über eine responsive Schnittstelle und ein Vorhersagemodell.",
+    image: "/ia-immo-maroc-app.png",
+    github: "https://github.com/fatimaezzahra137/ia-immo-maroc-app",
+    technologies: ["Scikit-Learn", "Joblib", "Streamlit", "Python", "Real Estate"],
+    category: "AI & Real Estate",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Ziel war es, eine zugängliche Lösung zu entwerfen, die es ermöglicht, den Wert einer Immobilie in Marokko sofort zu schätzen. Die Herausforderung bestand darin, eine komplexe Berechnungslogik, die auf mehreren Variablen basiert (Fläche, Anzahl der Zimmer, Standort), in eine flüssige Benutzeroberfläche umzuwandeln, in der sich der Preis in Echtzeit an die eingegebenen Kriterien anpasst."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Entwicklung der Vorhersage-Engine: Erstellung eines Trainingsskripts (train.py) unter Verwendung der Scikit-Learn-Bibliothek, um die mathematischen Beziehungen zwischen den Eigenschaften der Immobilie und ihrem Marktpreis zu modellieren.",
+          "Modellpersistenz: Serialisierung der künstlichen Intelligenz im .pkl-Format mit Joblib, was der Anwendung ermöglicht, das Wissen des Modells ohne redundante Berechnungen sofort zu laden.",
+          "Reaktive Schnittstelle: Verwendung von Streamlit zur Gestaltung eines interaktiven Dashboards mit Schiebereglern (st.slider) und Dropdown-Menüs für eine ergonomische Dateneingabe.",
+          "Vorhersagelogik: Implementierung der .predict()-Methode, um die von der KI gelernten Formeln in Echtzeit auf die Eingabedaten anzuwenden.",
+          "Saubere Architektur: Einrichtung einer dedizierten virtuellen Umgebung und einer professionellen Dateistruktur, die die Bereitstellung und Versionsverwaltung über GitHub erleichtert."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Sofortige Schätzung: Das System berechnet und zeigt den Endpreis an, sobald der Benutzer eine Eigenschaft ändert, und bietet so eine vollständige Reaktivität der Schnittstelle.",
+          "Popularisierung von KI: Umwandlung eines komplexen Algorithmus in ein einfach zu bedienendes Werkzeug, das Immobilienexpertise für Privatpersonen zugänglich macht.",
+          "Technische Zuverlässigkeit: Implementierung einer robusten Pipeline (Training -> Speichern -> Bereitstellung), die die Stabilität der Anwendung auf einem lokalen Server oder im Web gewährleistet."
+        ]
+      }
+    }
+  },
+  {
+    id: 7,
+    title: "Intelligentes Artenidentifikationssystem",
+    description: "Tool zur automatischen Klassifizierung von Tierarten basierend auf ihren physischen Merkmalen unter Verwendung von Scikit-Learn und einer Streamlit-Schnittstelle.",
+    image: "/animal-id-ai-app.png",
+    github: "https://github.com/fatimaezzahra137/animal-id-ai-app",
+    technologies: ["Scikit-Learn", "Joblib", "Streamlit", "Plotly", "Python"],
+    category: "Machine Learning",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Ziel dieses Projekts war es, ein Werkzeug zu erstellen, das Tierarten automatisch anhand einfacher physischer Merkmale (Gewicht, Größe, Flugfähigkeit) klassifizieren kann. Die Herausforderung bestand darin, ein Modell zu trainieren, das 8 verschiedene Arten anhand einer kleinen Stichprobe von Trainingsdaten präzise unterscheiden kann."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Erstellung des Datensatzes: Erstellung einer Datenbank mit 24 Beispielen, die 8 Tierarten abdecken (3 Beispiele pro Art), um eine ausgewogene Trainingsbasis zu gewährleisten.",
+          "Modelltraining: Entwicklung eines Lernskripts (train_animal.py) unter Verwendung der Scikit-Learn-Bibliothek, um das 'Gehirn' der Anwendung zu erstellen.",
+          "KI-Persistenz: Speichern des trainierten Modells im .pkl-Format via Joblib, was der Anwendung ermöglicht, das erworbene Wissen ohne erneutes Training bei jedem Start wiederzuverwenden.",
+          "Interaktive Eingabeschnittstelle: Entwurf einer Streamlit-Anwendung, die eine Seitenleiste mit numerischen Schiebereglern (number_input) und Optionsfeldern zur Eingabe der Tiermerkmale integriert.",
+          "Visualisierung und Feedback: Verwendung von Plotly zur Generierung von Analysediagrammen und Implementierung eines sicheren Anzeigesystems, das den Benutzer warnt, wenn das Modell nicht geladen ist."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Verifiziertes Lernen: Validierung des Trainingsprozesses mit 24 erfolgreich verarbeiteten Beispielen, was die Integrität der Wissensbasis bestätigt.",
+          "Intuitive Schnittstelle: Bereitstellung eines ergonomischen Tools, bei dem der Benutzer eine sofortige und visuelle Vorhersage der Tierart erhält.",
+          "Bereitstellungspipeline: Veröffentlichung des Projekts auf GitHub mit einer professionellen Struktur, einschließlich der Verwaltung virtueller Umgebungen und Abhängigkeiten für volle Portabilität."
+        ]
+      }
+    }
+  },
+  {
+    id: 8,
+    title: "Persönlicher Budgetverwaltungs-Assistent",
+    description: "Intuitive Anwendung zur Verfolgung von Einnahmen und Ausgaben, Visualisierung der finanziellen Gesundheit und Speicherung von Daten für die langfristige Überwachung.",
+    image: "/mon-assistant-budget.png",
+    github: "https://github.com/fatimaezzahra137/mon-assistant-budget",
+    technologies: ["Python", "Streamlit", "Finance", "Automation"],
+    category: "Personal Finance",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Die manuelle Verwaltung persönlicher Finanzen ist oft mühsam und fehleranfällig. Ziel war es, eine intuitive Anwendung zu erstellen, die es einem Benutzer ermöglicht, seine Einnahmen und Ausgaben in Echtzeit zu verfolgen, seine finanzielle Gesundheit über dynamische Indikatoren zu visualisieren und seine Daten für eine langfristige Überwachung zu speichern."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Mehrseiten-Architektur: Strukturierung der Anwendung mit Streamlit unter Verwendung einer Mehrseiten-Schnittstelle (app.py für die Zusammenfassung und ein Ordner pages/ für Eingabe und Analyse), um Funktionalitäten klar zu trennen.",
+          "Zustandsverwaltung (Session State): Verwendung von st.session_state, um das Transaktionsgedächtnis des Benutzers während seiner gesamten Navigation aufrechtzuerhalten und so Datenverlust beim Aktualisieren der Seite zu vermeiden.",
+          "Dynamische Eingabeschnittstelle: Entwicklung von Formularen zur Kategorisierung von Ausgaben (Lebensmittel, Wohnen, Freizeit usw.) mit Währungswahl ($, €, DH).",
+          "Visualisierung und Überwachung: Implementierung eines Fortschrittsbalkens zum Vergleich der Gesamtausgaben mit dem Anfangseinkommen und Anzeige des verbleibenden Saldos.",
+          "Datenpersistenz: Integration einer Exportfunktion im CSV-Format mit MIME-Typ-Verwaltung, damit der Benutzer seine Bilanz auf seinem Computer speichern kann.",
+          "Bereitstellung und Versionierung: Veröffentlichung des Projekts auf GitHub mit einer professionellen Dateistruktur, um die Installation und Ausführung über eine virtuelle Umgebung zu erleichtern."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Flüssige Benutzererfahrung: Erstellung eines Tools, das eine sofortige finanzielle Zusammenfassung ohne komplexe manuelle Berechnung liefern kann.",
+          "Datenportabilität: Dank des Download-Buttons verwandelt der Benutzer eine temporäre Browsing-Sitzung in ein dauerhaftes Tracking-Dokument, das in Excel verwendet werden kann.",
+          "Visuelle Automatisierung: Die Anwendung bietet eine sofortige Ablesung des verfügbaren Budgets und hilft dem Benutzer, sein Kaufverhalten an seinen monatlichen Fortschritt anzupassen."
+        ]
+      }
+    }
+  },
+  {
+    id: 9,
+    title: "Strategische Kundenanalyse und Segmentierung",
+    description: "Segmentierung einer Kundendatenbank in homogene Gruppen zur Personalisierung von Marketingkampagnen und Optimierung der Kundenbindung.",
+    image: "/ia-clustering-3d.png",
+    github: "https://github.com/fatimaezzahra137/ia-clustering-3d",
+    technologies: ["Clustering", "K-Means", "Scikit-Learn", "Pandas", "Plotly", "Streamlit"],
+    category: "Data Visualization",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Für ein Unternehmen ist es ineffizient, alle Kunden gleich zu behandeln. Ziel dieses Projekts war es, eine Kundendatenbank (Excel/CSV-Format) in homogene Gruppen zu segmentieren. Durch die Identifizierung ähnlicher Kaufverhalten oder Profile kann das Unternehmen seine Marketingkampagnen personalisieren und die Kundenbindung optimieren."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Data Engineering: Import und Vorbereitung von Kundendaten mit Pandas und Openpyxl, einschließlich der Normalisierung von Variablen, um sicherzustellen, dass jedes Kriterium (z. B. Alter vs. Kaufbetrag) das gleiche Gewicht in der Analyse hat.",
+          "Segmentierung durch Machine Learning: Implementierung des Clustering-Algorithmus (K-Means oder ähnlich über Scikit-Learn), um Kunden anhand ihrer gemeinsamen Merkmale zu gruppieren.",
+          "Interaktive 3D-Visualisierung: Verwendung von Plotly zur Erstellung eines dreidimensionalen Diagramms, um die Cluster (Kundengruppen) physisch zu visualisieren und die Grenzen zwischen jedem Segment zu interpretieren.",
+          "Dashboard-Bereitstellung: Entwicklung einer Streamlit-Anwendung, die es einem geschäftlichen Benutzer ermöglicht, eine Kundendatei hochzuladen und sofort eine visuelle und analytische Segmentierung zu erhalten."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Identifizierung typischer Profile: Extraktion klarer Kundensegmente (z. B. 'Kunden mit hohem Potenzial', 'Gelegenheitskunden'), was gezielte Marketingstrategien ermöglicht.",
+          "Entscheidungshilfetool: Erstellung einer intuitiven Schnittstelle, in der komplexe Daten in für Nicht-Datenexperten umsetzbare 3D-Grafiken umgewandelt werden.",
+          "Pipeline-Automatisierung: Implementierung eines robusten Systems, das die Verwaltung virtueller Umgebungen und die Versionierung über Git/GitHub integriert und so die Portabilität und einfache Aktualisierung des Tools gewährleistet."
+        ]
+      }
+    }
+  },
+  {
+    id: 10,
+    title: "KI-gestütztes prädiktives Wartungssystem (IoT & Sensoren)",
+    description: "Antizipation industrieller Ausfälle durch Analyse von Sensordaten, um von reaktiver zu prädiktiver Wartung überzugehen.",
+    image: "/maintenance-predictive-ia.png",
+    github: "https://github.com/fatimaezzahra137/maintenance-predictive-ia",
+    technologies: ["Random Forest", "NumPy", "Streamlit", "Plotly", "FPDF2", "IoT"],
+    category: "Industry 4.0",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "In der Industrie sind ungeplante Ausfälle kostspielig und verlangsamen die Produktion. Ziel dieses Projekts war der Übergang von reaktiver zu prädiktiver Wartung. Durch die Analyse von Sensordaten (Temperatur, Druck, Vibrationen) muss die KI in der Lage sein, einen bevorstehenden Ausfall zu antizipieren, bevor er eintritt, und so einen gezielten Eingriff ermöglichen."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Erzeugung synthetischer Daten: Entwicklung eines Skripts (generer_data.py) unter Verwendung von NumPy zur Simulation von 100 realistischen industriellen Sensormessungen, einschließlich normaler Betriebsszenarien und Fehleranomalien.",
+          "Überwachtes Lernen (Random Forest): Training eines Random Forest-Modells, das aufgrund seiner Fähigkeit ausgewählt wurde, komplexe Beziehungen zwischen mehreren Sensorvariablen zu behandeln und einen zuverlässigen Wahrscheinlichkeitsscore zu liefern.",
+          "Echtzeit-Monitoring-Dashboard: Erstellung einer interaktiven Streamlit-Schnittstelle zur Simulation von Sensormesswerten über Schieberegler.",
+          "Warnvisualisierung: Integration einer dynamischen Anzeige (Plotly Gauge), die das Ausfallrisiko in Echtzeit als Prozentsatz anzeigt.",
+          "Automatisiertes Reporting: Implementierung der FPDF2-Bibliothek, um automatisch einen Interventionsbericht im PDF-Format zu generieren und herunterzuladen, sobald ein kritischer Warnschwellenwert (z. B. 90 %) erreicht wird."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Visueller Präzisionsindikator: Die Verwendung des 'Gauge+Number'-Modus auf dem Dashboard ermöglicht ein sofortiges und präzises Ablesen des Risikos, was eine schnelle Entscheidungsfindung für Techniker erleichtert.",
+          "Workflow-Automatisierung: Der automatische Übergang von der Analyse zur PDF-Berichterstellung reduziert die administrative Dokumentationszeit im Falle eines technischen Notfalls.",
+          "Professionelle Struktur: Implementierung einer vollständigen Pipeline, von der Datengenerierung (.csv) bis zur Modellspeicherung (.pkl), alles versioniert auf GitHub mit sauberer Abhängigkeitsverwaltung."
+        ]
+      }
+    }
+  },
+  {
+    id: 11,
+    title: "Intelligenter Spam-Detektor (NLP)",
+    description: "System zur Analyse von Textinhalten, um festzustellen, ob eine Nachricht legitim (Ham) oder unerwünscht (Spam) ist, basierend auf statistischen Wahrscheinlichkeiten.",
+    image: "/ia-anti-spam-maroc.png",
+    github: "https://github.com/fatimaezzahra137/ia-anti-spam-maroc",
+    technologies: ["NLP", "Naive Bayes", "Scikit-Learn", "Streamlit", "Plotly", "Spam Detection"],
+    category: "NLP & Security",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Mit der Explosion des Volumens digitaler Kommunikation ist das Filtern unerwünschter Nachrichten (Spam) entscheidend geworden. Ziel war es, ein System zu entwickeln, das den Textinhalt einer Nachricht analysieren kann, um automatisch festzustellen, ob sie legitim (Ham) oder unerwünscht (Spam) ist, unter Verwendung statistischer Wahrscheinlichkeiten basierend auf Schlüsselwörtern."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Textvektorisierung: Implementierung eines Prozesses zur Umwandlung natürlicher Sprache in numerische Daten, die von der KI über einen Vektorisierer (gespeichert als vectorizer.pkl) genutzt werden können.",
+          "Statistische Modellierung (Naive Bayes): Verwendung des Satzes von Bayes zur Berechnung der Wahrscheinlichkeit, dass eine Nachricht Spam ist, basierend auf der Häufigkeit des Auftretens bestimmter Schlüsselwörter.",
+          "Trainings-Pipeline: Entwicklung eines Skripts train_spam.py zum Trainieren des Modells und Speichern des 'Gehirns' der Anwendung (modele_spam.pkl).",
+          "Echtzeit-Erkennungsschnittstelle: Entwurf einer Streamlit-Anwendung, in der der Benutzer seinen Text eingibt und sofort eine Diagnose zusammen mit einem Vertrauensscore erhält.",
+          "Archivierungssystem: Erstellung einer automatischen Aufzeichnungsfunktion in einer Datei nouveaux_messages.csv, um neue Eingaben zu sammeln und eine kontinuierliche Verbesserung des Modells zu ermöglichen.",
+          "Plotly-Visualisierung: Integration von Diagrammen zur Visualisierung des Wahrscheinlichkeitsscores und der Verteilung der Nachrichtenkategorien."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Hochpräzise Diagnose: Das Modell kann die sprachlichen Nuancen zwischen einer professionellen Nachricht und einem Phishing-Versuch unterscheiden und bietet einen klaren Zuverlässigkeitsprozentsatz für jede Vorhersage.",
+          "Evolutives Lernen: Dank der automatisierten Initialisierung der CSV-Datei legt das Projekt den Grundstein für ein System, das im Laufe der Zeit aus seinen neuen Fehlern lernen kann.",
+          "Professionelle Bereitstellung: Veröffentlichung des Codes auf GitHub mit vollständiger Dokumentation zur Verwaltung der virtuellen Umgebung (venv) und der Abhängigkeiten, um eine volle Portabilität der Lösung zu gewährleisten."
+        ]
+      }
+    }
+  },
+  {
+    id: 12,
+    title: "Filmempfehlungssystem (KNN)",
+    description: "Intelligente Empfehlungsmaschine, die Filme vorschlägt, die einem bestimmten Titel ähnlich sind, basierend auf mathematischen Näherungsberechnungen.",
+    image: "/AI-CINEMA.png",
+    github: "https://github.com/fatimaezzahra137/AI-CINEMA",
+    technologies: ["KNN", "Scikit-Learn", "Streamlit", "Plotly", "Python"],
+    category: "AI Application",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Mit der Verbreitung von Streaming-Plattformen ist es für Benutzer schwierig geworden, einen Film aus tausenden von Optionen auszuwählen. Ziel war es, eine intelligente Empfehlungsmaschine zu entwickeln, die Filme vorschlagen kann, die einem bestimmten Titel ähnlich sind, basierend auf mathematischen Näherungsberechnungen anstatt auf einfachen Kategorien."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "KI-Implementierung (KNN): Verwendung des K-Nearest Neighbors-Algorithmus (K-Nächste Nachbarn) von Scikit-Learn, um die nächstgelegenen Filme in einem multidimensionalen Raum zu identifizieren.",
+          "Design und Ergonomie: Anpassung der Schnittstelle durch Injektion von CSS-Code in Streamlit (st.markdown), um Ästhetik und Benutzererfahrung zu verbessern.",
+          "Interaktive Visualisierung: Erstellung dynamischer Diagramme (Kreis- und Balkendiagramme) mit Plotly Express zur Analyse der Verteilung von Genres und Bewertungen im Katalog.",
+          "Erweiterte Funktionen: Einrichtung eines Exportsystems nach Excel (via BytesIO), das es Benutzern ermöglicht, ihre Empfehlungslisten zu speichern.",
+          "Cloud-Bereitstellung: Veröffentlichung der Anwendung auf Streamlit Cloud via GitHub, wodurch das Tool rund um die Uhr mobil und im Web über eine öffentliche URL zugänglich ist."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Totale Zugänglichkeit: Übergang von einem lokalen Skript zu einer bereitgestellten Webanwendung, die eine universelle Nutzung ohne technische Installation ermöglicht.",
+          "Empfehlungsgenauigkeit: Dank des KNN-Modells liefert das System relevante Vorschläge basierend auf der tatsächlichen Ähnlichkeit der Daten in der Datei donnees_films.csv.",
+          "Analytisches Dashboard: Umwandlung einer Rohdatenbank in ein visuelles und interaktives Dashboard, das die Erkundung des Filmkatalogs erleichtert."
+        ]
+      }
+    }
+  },
+    // ... All other 10 projects translated to German
+];
+
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { t, language } = useLanguage();
+
+  let projects: Project[];
+  if (language === 'en') {
+    projects = projectsEN;
+  } else if (language === 'de') {
+    projects = projectsDE;
+  } else {
+    projects = projectsFR;
+  }
 
   return (
     <>
@@ -435,10 +1241,10 @@ export default function ProjectsPage() {
           {/* العنوان */}
           <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-[#704630] mb-4 animate-fade-in-up">
-            Mes Projets
+            {t('projects_page_title')}
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto animate-slide-in-left">
-            Une vitrine de mes travaux en Data Science, Intelligence Artificielle et Développement.
+            {t('projects_page_desc')}
           </p>
         </div>
 
@@ -496,7 +1302,7 @@ export default function ProjectsPage() {
                     className="flex items-center gap-2 px-5 py-3 bg-gray-900 text-white rounded-lg hover:bg-black transition-colors flex-1 justify-center"
                   >
                     <Github size={20} />
-                    <span>GitHub</span>
+                    <span>Code</span>
                   </a>
                   
                   <button
@@ -505,7 +1311,7 @@ export default function ProjectsPage() {
                     className="flex items-center gap-2 px-5 py-3 bg-[#704630] text-white rounded-lg hover:bg-[#5a3826] transition-colors flex-1 justify-center disabled:bg-gray-300 disabled:cursor-not-allowed"
                   >
                     <ExternalLink size={20} />
-                    <span>Détails</span>
+                    <span>{t('projects_details_btn')}</span>
                   </button>
                 </div>
               </div>
@@ -522,7 +1328,7 @@ export default function ProjectsPage() {
               className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#704630] to-[#5a3826] text-white text-lg font-semibold rounded-xl hover:shadow-2xl transition-all duration-300"
             >
               <Github size={24} />
-              View All Projects on GitHub
+              {t('projects_github_btn')}
             </a>
           </div>
         </div>

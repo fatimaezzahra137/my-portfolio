@@ -6,8 +6,11 @@ import Skills from "@/components/Skills";
 import Certifications from "@/components/Certifications";
 import Link from "next/link";
 import { ArrowRight, Briefcase, Search, Shield, Zap, Brain } from "lucide-react";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <>
       {/* Hero Section */}
@@ -33,7 +36,7 @@ export default function Home() {
                 <Briefcase className="w-8 h-8 text-[#704630]" />
               </div>
               <h2 className="text-3xl font-bold text-gray-900 text-center">
-                Philosophie Professionnelle
+                {t('phil_title')}
               </h2>
             </div>
 
@@ -46,9 +49,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Rigueur Analytique</h3>
+                  <h3 className="font-bold text-gray-900">{t('phil_rigor_title')}</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Application de la logique mathématique pour interpréter des structures de données complexes et assurer leur cohérence.
+                    {t('phil_rigor_desc')}
                   </p>
                 </div>
               </div>
@@ -61,9 +64,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Intégrité des Données</h3>
+                  <h3 className="font-bold text-gray-900">{t('phil_integrity_title')}</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Normes strictes pour la sécurité, la précision et la fiabilité des données dans chaque projet.
+                    {t('phil_integrity_desc')}
                   </p>
                 </div>
               </div>
@@ -76,9 +79,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Performance & Optimisation</h3>
+                  <h3 className="font-bold text-gray-900">{t('phil_perf_title')}</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Optimisation des environnements de données pour une efficacité et une rapidité maximales.
+                    {t('phil_perf_desc')}
                   </p>
                 </div>
               </div>
@@ -91,9 +94,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">Apprentissage Continu</h3>
+                  <h3 className="font-bold text-gray-900">{t('phil_learn_title')}</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    Engagement envers l'apprentissage continu des nouvelles technologies Data & IA.
+                    {t('phil_learn_desc')}
                   </p>
                 </div>
               </div>
@@ -102,7 +105,7 @@ export default function Home() {
             {/* Quote */}
             <div className="mt-10 pt-6 border-t border-gray-100 text-center">
               <p className="italic text-gray-700 font-medium">
-                "Allier la <span className="text-[#704630] font-bold">Logique Mathématique</span> à la <span className="text-[#704630] font-bold">Précision Technique</span> pour bâtir des solutions de données robustes."
+                {t('phil_quote')}
               </p>
             </div>
           </div>
@@ -113,7 +116,7 @@ export default function Home() {
               href="/projects"
               className="inline-flex items-center gap-2 px-8 py-3 bg-[#704630] text-white font-semibold rounded-lg hover:bg-[#5a3826] transition-colors shadow-lg hover:shadow-[#F8E8E8]"
             >
-              Voir tous mes projets
+              {t('phil_cta')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

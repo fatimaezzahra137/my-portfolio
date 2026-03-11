@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -24,7 +26,7 @@ export default function Footer() {
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed max-w-md">
-              Étudiante ingénieure en Data & Business Intelligence, passionnée par l'optimisation des données et l'IA.
+              {t('role')}
             </p>
           </div>
 
@@ -32,13 +34,13 @@ export default function Footer() {
           <div className="space-y-5">
             <h4 className="text-lg font-semibold text-white flex items-center gap-2">
               <span className="w-2 h-2 bg-[#E6C0CB] rounded-full"></span>
-              Quick Links
+              Liens
             </h4>
             <ul className="space-y-3">
               {[
-                { href: "/", label: "Home" },
-                { href: "/projects", label: "Projects" },
-                { href: "/contact", label: "Contact" },
+                { href: "/", label: t('nav_home') },
+                { href: "/projects", label: t('nav_projects') },
+                { href: "/contact", label: t('nav_contact') },
              
               ].map((link) => (
                 <li key={link.href}>
@@ -58,10 +60,10 @@ export default function Footer() {
           <div className="space-y-5">
             <h4 className="text-lg font-semibold text-white flex items-center gap-2">
               <span className="w-2 h-2 bg-[#E6C0CB] rounded-full"></span>
-              Connect
+              {t('connect_with_me')}
             </h4>
             <p className="text-gray-300 text-sm">
-              Let's collaborate on data-driven projects or discuss AI innovations.
+              
             </p>
             <div className="flex gap-4">
               {[
@@ -102,14 +104,14 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              Designed & developed with modern tech stack
+              {t('footer_designed')}
             </p>
             <p className="text-gray-300 text-center flex items-center justify-center gap-2">
-              Crafted with <Heart className="w-4 h-4 text-[#E6C0CB] animate-pulse" /> by Fatima Ezzahra BARRADI
+              {t('footer_crafted')} <Heart className="w-4 h-4 text-[#E6C0CB] animate-pulse" /> {t('footer_by')}
               <span className="text-[#E6C0CB] font-medium">© {currentYear}</span>
             </p>
             <p className="text-gray-400 text-sm">
-              All intellectual property reserved
+              {t('footer_rights')}
             </p>
           </div>
         </div>

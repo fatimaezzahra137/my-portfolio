@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { Award } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
-const certifications = [
+const certificationsFR = [
   {
     id: 3,
     title: "Formation SQL/PLSQL",
@@ -41,17 +42,74 @@ const certifications = [
   }
 ];
 
+const certificationsEN = [
+  {
+    id: 3,
+    title: "SQL/PLSQL Training",
+    issuer: "Supemir Academy",
+    date: "2025 – 2026",
+    image: "/plsql.png",
+  },
+  {
+    id: 6,
+    title: "German Language Studies",
+    issuer: "Elite Deutsch Sprachezentrum",
+    date: "November 2024",
+    image: "/elite-deutsch.png",
+  },
+  {
+    id: 4,
+    title: "Generative AI Training",
+    issuer: "Gomycode",
+    date: "October 2024",
+    image: "/gomycode.png",
+  },
+  {
+    id: 5,
+    title: "C4EE Training",
+    issuer: "Hassan II University",
+    date: "July 2024",
+    image: "/c4ee.png",
+  },
+  {
+    id: 1,
+    title: "Bachelor in Mathematics and Computer Science",
+    issuer: "FSB Casablanca",
+    date: "2024–2025",
+    image: "/hassan2-logo.png",
+  }
+];
+
+const certificationsDE = [
+  { id: 3, title: "SQL/PLSQL Schulung", issuer: "Supemir Académie", date: "2025 – 2026", image: "/plsql.png" },
+  { id: 6, title: "Deutsch-Sprachstudium", issuer: "Elite Deutsch Sprachezentrum", date: "November 2024", image: "/elite-deutsch.png" },
+  { id: 4, title: "Schulung für Generative KI", issuer: "Gomycode", date: "Oktober 2024", image: "/gomycode.png" },
+  { id: 5, title: "C4EE-Schulung", issuer: "Universität Hassan II", date: "Juli 2024", image: "/c4ee.png" },
+  { id: 1, title: "Bachelor in Mathematik und Informatik", issuer: "FSB Casablanca", date: "2024–2025", image: "/hassan2-logo.png" }
+];
+
 export default function Certifications() {
+  const { t, language } = useLanguage();
+
+  let certifications;
+  if (language === 'en') {
+    certifications = certificationsEN;
+  } else if (language === 'de') {
+    certifications = certificationsDE;
+  } else {
+    certifications = certificationsFR;
+  }
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" aria-label="Certifications">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="text-center space-y-4">
           <h2 className="text-4xl font-bold text-[#704630] flex items-center justify-center gap-3">
             <Award className="w-10 h-10" />
-            Certifications
+            {t('cert_title')}
           </h2>
           <p className="text-lg text-gray-700">
-            Mes qualifications académiques et professionnelles.
+            {t('cert_desc')}
           </p>
         </div>
 
@@ -95,7 +153,7 @@ export default function Certifications() {
                 rel="noopener noreferrer"
                 className="mt-4 px-6 py-2 bg-[#F8E8E8] text-[#704630] font-semibold rounded-lg text-sm hover:bg-[#E6C0CB] transition-colors w-full sm:w-auto"
               >
-                View
+                {t('cert_view')}
               </a>
             </div>
           ))}

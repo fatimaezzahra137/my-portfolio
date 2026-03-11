@@ -3,8 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20"
@@ -26,17 +29,17 @@ export default function Hero() {
           {/* العنوان الرئيسي */}
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
-              Bonjour, je suis{" "}
+              {t('greeting')} <br className="hidden lg:block" />
               <span className="text-[#704630]">Fatima Ezzahra BARRADI</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-800 font-semibold">
-              Étudiante ingénieure en Data & Business Intelligence
+              {t('role')}
             </p>
           </div>
 
           {/* الوصف */}
           <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Développeuse passionnée par la structure des données et l'optimisation, j'allie la logique mathématique au développement informatique. Je vise un stage de fin d'études en Data/IA orienté vers l'analyse, l'automatisation et la valorisation des données.
+            {t('hero_desc')}
           </p>
 
           {/* أزرار CTA */}
@@ -46,7 +49,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-8 py-3 bg-[#704630] text-white font-semibold rounded-lg hover:bg-[#5a3826] hover:shadow-xl transition-all duration-300"
               aria-label="View my projects"
             >
-              View My Projects
+              {t('view_projects')}
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
@@ -54,7 +57,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-8 py-3 bg-white text-[#704630] font-semibold rounded-lg border-2 border-[#704630] hover:bg-[#F8E8E8] transition-all duration-300"
               aria-label="Get in touch"
             >
-              Get In Touch
+              {t('get_in_touch')}
             </Link>
 
             {/* Download CV Button */}
@@ -65,7 +68,7 @@ export default function Hero() {
               download="Fatima_Ezzahra_BARRADI_CV.pdf"
               className="inline-flex items-center gap-2 px-8 py-3 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300"
             >
-              Download CV
+              {t('download_cv')}
               <Download className="w-5 h-5" />
             </a>
           </div>
@@ -73,7 +76,7 @@ export default function Hero() {
           {/* الأيقونات - محدثة */}
           <div className="pt-10">
             <p className="text-center lg:text-left text-gray-700 mb-6 font-semibold text-lg">
-              Connect with me:
+              {t('connect_with_me')}
             </p>
             
             <div className="flex justify-center lg:justify-start items-end gap-6">

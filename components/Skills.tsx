@@ -6,11 +6,14 @@ import {
   Wrench,
   Brain,
 } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   const skillCategories = [
     {
-      name: "Langages & Frameworks",
+      name: t('skill_lang'),
       icon: Code2,
       skills: [
         "Python",
@@ -24,7 +27,7 @@ export default function Skills() {
       ],
     },
     {
-      name: "Données & Intelligence Artificielle",
+      name: t('skill_data'),
       icon: Brain,
       skills: [
         "Pandas",
@@ -38,7 +41,7 @@ export default function Skills() {
       ],
     },
     {
-      name: "Bases de Données & Outils",
+      name: t('skill_db'),
       icon: Database,
       skills: [
         "MySQL",
@@ -51,15 +54,15 @@ export default function Skills() {
       ],
     },
     {
-      name: "Compétences Comportementales",
+      name: t('skill_soft'),
       icon: Wrench,
       skills: [
-        "Gestion du temps",
-        "Responsabilité",
-        "Travail en équipe",
-        "Gestion du stress",
-        "Curiosité",
-        "Adaptabilité",
+        t('skill_soft_time'),
+        t('skill_soft_responsibility'),
+        t('skill_soft_teamwork'),
+        t('skill_soft_stress'),
+        t('skill_soft_curiosity'),
+        t('skill_soft_adaptability'),
       ],
     },
   ];
@@ -81,10 +84,10 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="text-center space-y-4 animate-fade-in-up">
           <h2 className="text-4xl sm:text-5xl font-bold text-[#704630]">
-            Compétences Techniques
+            {t('skills_title')}
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Un ensemble de compétences alliant développement, analyse de données et modélisation.
+            {t('skills_desc')}
           </p>
         </div>
 

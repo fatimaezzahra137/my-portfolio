@@ -4,8 +4,11 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Mail, MessageSquare, User } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import { useLanguage } from "./LanguageContext";
 
 export default function ContactForm() {
+  const { t } = useLanguage();
+
   // État du formulaire
   const [formData, setFormData] = useState({
     name: "",
@@ -53,8 +56,8 @@ export default function ContactForm() {
 
       console.log('Email sent successfully:', result);
 
-      toast.success("Message sent successfully!", {
-        description: "I'll be back within 24h",
+      toast.success(t('contact_success'), {
+        description: "",
       });
 
       // Réinitialisation du formulaire
@@ -69,7 +72,7 @@ export default function ContactForm() {
       // @ts-ignore
       const errorMessage = error?.text || error?.message || "Something went wrong. Check console.";
 
-      toast.error("Failed to send message", {
+      toast.error(t('contact_error'), {
         description: `Error: ${errorMessage}`,
       });
 
@@ -88,7 +91,7 @@ export default function ContactForm() {
       <div className="space-y-2">
         <label htmlFor="name" className="block font-semibold text-gray-900">
           <User className="w-4 h-4 inline mr-2" />
-          Name *
+          {t('contact_name')} *
         </label>
         <input
           type="text"
@@ -97,7 +100,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={handleChange}
           required
-          placeholder="Your full name"
+          placeholder=""
           className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 transition-smooth"
           aria-required="true"
         />
@@ -107,7 +110,7 @@ export default function ContactForm() {
       <div className="space-y-2">
         <label htmlFor="email" className="block font-semibold text-gray-900">
           <Mail className="w-4 h-4 inline mr-2" />
-          Email *
+          {t('contact_email')} *
         </label>
         <input
           type="email"
@@ -116,7 +119,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          placeholder="your.email@example.com"
+          placeholder=""
           className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 transition-smooth"
           aria-required="true"
         />
@@ -126,7 +129,7 @@ export default function ContactForm() {
       <div className="space-y-2">
         <label htmlFor="message" className="block font-semibold text-gray-900">
           <MessageSquare className="w-4 h-4 inline mr-2" />
-          Message *
+          {t('contact_message')} *
         </label>
         <textarea
           id="message"
@@ -134,7 +137,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          placeholder="Tell me about your project..."
+          placeholder=""
           rows={6}
           className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#704630] text-gray-900 placeholder-gray-500 resize-none transition-smooth"
           aria-required="true"
@@ -154,15 +157,15 @@ export default function ContactForm() {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            Sending...
+            {t('contact_sending')}
           </span>
         ) : (
-          "Send Message"
+          t('contact_send')
         )}
       </button>
 
       <p className="text-sm text-gray-500 text-center mt-4">
-        I typically respond within 24 hours 📧
+         📧
       </p>
     </form>
   );

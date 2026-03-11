@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
 import ScrollToTop from "@/components/ScrollToTop";
+import { LanguageProvider } from "@/components/LanguageContext";
 
 
 const geist = Geist({
@@ -36,14 +37,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://<your-vercel-app-url>", // Mettez à jour avec votre URL
+    url: "https://my-portfolio-sigma-three-81.vercel.app/", // Mettez à jour avec votre URL
     siteName: "Portfolio de Fatima Ezzahra BARRADI",
     title: "Fatima Ezzahra BARRADI | Étudiante Ingénieure en Data & BI",
     description:
       "Découvrez les projets de Fatima Ezzahra BARRADI en Data, IA et développement web.",
     images: [
       {
-        url: "https://<your-vercel-app-url>/og-image.png", // Mettez à jour avec votre URL
+        url: "https://my-portfolio-sigma-three-81.vercel.app/og-image.png", // Mettez à jour avec votre URL
         width: 1200,
         height: 630,
         alt: "Portfolio de Fatima Ezzahra BARRADI",
@@ -73,11 +74,13 @@ export default function RootLayout({
       <body suppressHydrationWarning={true}
         className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900`}
       >
-        <Navbar />
-        {children}
-        <Footer />
-        <ScrollToTop />
-        <Toaster position="top-right" />
+        <LanguageProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <ScrollToTop />
+          <Toaster position="top-right" />
+        </LanguageProvider>
       </body>
     </html>
   );

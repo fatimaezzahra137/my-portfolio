@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import { useLanguage } from './LanguageContext';
 import { X, Target, Wrench, TrendingUp } from 'lucide-react';
 
 // Définition de la structure détaillée d'un projet
@@ -21,6 +22,8 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const { t } = useLanguage();
+
   // Fermer la modale avec la touche "Echap"
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,7 +54,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
-          aria-label="Fermer la fenêtre modale"
+          aria-label={t('modal_close_aria')}
         >
           <X size={24} />
         </button>

@@ -7,7 +7,7 @@
 
 Portfolio moderne et responsive pour **Fatima Ezzahra BARRADI**, mettant en valeur ses compétences en **Data, Business Intelligence et développement informatique**. Construit avec des technologies web de pointe.
 
-🌐 **Live Demo:** `https://<your-vercel-app-url>`
+🌐 **Live Demo:** `https://my-portfolio-sigma-three-81.vercel.app/`
 
 ---
 
@@ -92,7 +92,7 @@ fatima-portfolio/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/fatimaezzahra137/your-repo-name
+git clone https://github.com/fatimaezzahra137/my-portfolio.git
 cd fatima-portfolio
 Install dependencies
 
@@ -141,8 +141,8 @@ Copy Service ID, Template ID, and Public Key to .env.local
 
 ## Links
 
-Portfolio Live: `https://<your-vercel-app-url>`
+Portfolio Live: `https://my-portfolio-sigma-three-81.vercel.app/`
 
-GitHub Repository: https://github.com/fatimaezzahra137
+GitHub Repository: https://github.com/fatimaezzahra137/my-portfolio
 
 ## License

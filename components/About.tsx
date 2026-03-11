@@ -3,13 +3,16 @@
 import { 
   Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages, Heart
 } from "lucide-react";
+import { useLanguage } from "./LanguageContext";
 
 export default function About() {
-  const education = [
+  const { language, setLanguage, t } = useLanguage();
+
+  const educationFR = [
     {
       school: "Supemir Académie | Casablanca",
       certification: "Formation JOBINTECH (SQL/PLSQL)",
-      year: "2025 - En cours",
+      year: "Février 2026",
       icon: Zap,
     },
     {
@@ -44,45 +47,175 @@ export default function About() {
     },
   ];
 
-  const experience = [
+  const educationDE = [
     {
-      title: "Données Stagiaire — HOUSSNI JOB Technopark, Casablanca",
-      description: "Création de bases de données pour la gestion des CV.",
+      school: "Supemir Académie | Casablanca",
+      certification: "Weiterbildung JOBINTECH (SQL/PLSQL)",
+      year: "Februar 2026",
+      icon: Zap,
+    },
+    {
+      school: "Elite Deutsch Sprachezentrum",
+      certification: "Deutschsprachstudium",
+      year: "November 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "Gomycode",
+      certification: "Weiterbildung in Generativer KI",
+      year: "Oktober 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "Université Hassan II de Casablanca",
+      certification: "C4EE-Ausbildung (Zyklus für Beschäftigung und Unternehmertum)",
+      year: "Juli 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "FSB, Casablanca",
+      certification: "Bachelor in Mathematik und Informatik - Schwerpunkt Datenbanken",
+      year: "2024–2025",
+      icon: GraduationCap,
+    },
+    {
+      school: "Lycée Allal Ben Abdellah, Casablanca",
+      certification: "Abitur Mathematische Wissenschaften A, französische Option",
+      year: "2021–2022",
+      icon: GraduationCap,
+    },
+  ];
+
+  const experienceFR = [
+    {
+      title: "Data Analyste & Développeuse SQL — Proximity Management Institute",
+      description: "Développement de scripts SQL/PLSQL sous Oracle et intégration de solutions d'IA Générative pour l'automatisation des analyses. Conception de rapports interactifs sur Power BI.",
+      year: "Février 2026",
+      icon: Briefcase,
+    },
+    {
+      title: "Analyste de Données Stagiaire — HOUSSNI JOB",
+      description: "Modélisation et création de bases de données structurées pour l'optimisation de la gestion des CV et du sourcing candidat.",
       year: "Octobre 2024",
       icon: Briefcase,
     },
     {
-      title: "Stagiaire PFE — Arduino & IoT Médiouna",
-      description: "Développement de logiciels robots pour une application web dans le cadre du projet de fin d'études.",
-      year: "avril 2024",
+      title: "Stagiaire PFE – Ingénierie IoT — Arduino & IoT",
+      description: "Conception de robots logiciels et collecte de données via capteurs IoT pour une application web intégrée.",
+      year: "Avril 2024",
       icon: Code2,
     },
   ];
 
-  const languages = [
+  const experienceDE = [
     {
-      language: "Arabe",
-      proficiency: "Langue maternelle",
+      title: "Data Analyst & SQL-Entwicklerin — Proximity Management Institute",
+      description: "Entwicklung von SQL/PLSQL-Skripten unter Oracle und Integration von Generative AI-Lösungen zur Automatisierung von Analysen. Erstellung interaktiver Berichte in Power BI.",
+      year: "Februar 2026",
+      icon: Briefcase,
     },
     {
-      language: "Français",
-      proficiency: "Courant",
+      title: "Datenanalystin (Praktikantin) — HOUSSNI JOB",
+      description: "Modellierung und Erstellung strukturierter Datenbanken zur Optimierung des Lebenslauf-Managements und des Kandidaten-Sourcings.",
+      year: "Oktober 2024",
+      icon: Briefcase,
     },
     {
-      language: "Anglais",
-      proficiency: "Courant",
-    },
-    {
-      language: "Allemand",
-      proficiency: "Courant",
+      title: "PFE-Praktikantin – IoT-Engineering — Arduino & IoT",
+      description: "Konzeption von Software-Robotern und Datenerfassung via IoT-Sensoren für eine integrierte Webanwendung.",
+      year: "April 2024",
+      icon: Code2,
     },
   ];
 
-  const interests = [
-    "Littérature",
-    "Voyages",
-    "Cuisine",
-    "Photographie"
+  const educationEN = [
+    {
+      school: "Supemir Academy | Casablanca",
+      certification: "JOBINTECH Training (SQL/PLSQL)",
+      year: "February 2026",
+      icon: Zap,
+    },
+    {
+      school: "Elite Deutsch Sprachezentrum",
+      certification: "German Language Studies",
+      year: "November 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "Gomycode",
+      certification: "Generative AI Training",
+      year: "October 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "Hassan II University of Casablanca",
+      certification: "C4EE Training (Employment and Entrepreneurship Cycle)",
+      year: "July 2024",
+      icon: BookOpen,
+    },
+    {
+      school: "FSB, Casablanca",
+      certification: "Bachelor in Mathematics and Computer Science - Database Major",
+      year: "2024–2025",
+      icon: GraduationCap,
+    },
+    {
+      school: "High School Allal Ben Abdellah, Casablanca",
+      certification: "Baccalaureate in Mathematical Sciences A, French Option",
+      year: "2021–2022",
+      icon: GraduationCap,
+    },
+  ];
+
+  const experienceEN = [
+    {
+      title: "Data Analyst & SQL Developer — Proximity Management Institute",
+      description: "Development of SQL/PLSQL scripts under Oracle and integration of Generative AI solutions for analysis automation. Design of interactive reports on Power BI.",
+      year: "February 2026",
+      icon: Briefcase,
+    },
+    {
+      title: "Data Analyst Intern — HOUSSNI JOB",
+      description: "Modeling and creation of structured databases for optimizing CV management and candidate sourcing.",
+      year: "October 2024",
+      icon: Briefcase,
+    },
+    {
+      title: "Graduation Project Intern – IoT Engineering — Arduino & IoT",
+      description: "Design of software robots and data collection via IoT sensors for an integrated web application.",
+      year: "April 2024",
+      icon: Code2,
+    },
+  ];
+
+  let education = educationFR;
+  let experience = experienceFR;
+
+  if (language === 'de') {
+    education = educationDE;
+    experience = experienceDE;
+  } else if (language === 'en') {
+    education = educationEN;
+    experience = experienceEN;
+  }
+
+  const languages = [
+    {
+      language: t('lang_ar'),
+      proficiency: t('prof_native'),
+    },
+    {
+      language: t('lang_fr'),
+      proficiency: t('prof_fluent'),
+    },
+    {
+      language: t('lang_en'),
+      proficiency: t('prof_fluent'),
+    },
+    {
+      language: t('lang_de'),
+      proficiency: t('prof_fluent'),
+    },
   ];
 
  return (
@@ -101,10 +234,10 @@ export default function About() {
     <div className="max-w-6xl mx-auto space-y-16">
       <div className="text-center space-y-4 animate-fade-in-up">
         <h2 className="text-4xl sm:text-5xl font-bold text-[#704630]">
-          À Propos de Moi
+          {t('about_title')}
         </h2>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Développeuse passionnée par la structure des données et l'optimisation, j'allie la logique mathématique au développement informatique. Je vise un stage de fin d'études en Data/IA orienté vers l'analyse, l'automatisation et la valorisation des données.
+          {t('about_desc')}
         </p>
       </div>
 
@@ -113,7 +246,7 @@ export default function About() {
         <div className="space-y-6 animate-fade-in-up">
           <h3 className="text-2xl font-bold flex items-center gap-2 text-gray-900">
             <Zap className="w-6 h-6 text-[#704630]" />
-            Formation
+            {t('formation_title')}
           </h3>
           <div className="space-y-4">
             {education.map((edu, idx) => {
@@ -147,7 +280,7 @@ export default function About() {
         <div className="space-y-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           <h3 className="text-2xl font-bold flex items-center gap-2 text-gray-900">
             <Code2 className="w-6 h-6 text-[#704630]" />
-            Expérience
+            {t('experience_title')}
           </h3>
           <div className="space-y-4">
             {experience.map((exp, idx) => {
@@ -181,14 +314,22 @@ export default function About() {
         <div className="lg:col-span-2 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <h3 className="text-2xl font-bold flex items-center gap-2 text-gray-900 mb-6">
             <Languages className="w-6 h-6 text-[#704630]" />
-            Langues
+            {t('languages_title')}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {languages.map((lang, idx) => (
               <div
                 key={idx}
-                className="p-4 bg-white backdrop-blur-sm rounded-lg border border-gray-200 hover:shadow-md hover:border-[#E6C0CB] transition-all text-center"
+                className="relative group p-4 bg-white backdrop-blur-sm rounded-lg border border-gray-200 hover:shadow-md hover:border-[#E6C0CB] transition-all text-center"
               >
+                {/* Tooltip Allemand */}
+                {idx === 3 && ( // Assuming German is always the 4th language
+                  <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg z-10">
+                    {t('german_fluency')}
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                )}
+
                 <h4 className="font-bold text-gray-900 text-lg mb-1">
                   {lang.language}
                 </h4>
@@ -197,24 +338,6 @@ export default function About() {
                 </p>
               </div>
             ))}
-          </div>
-
-          {/* Interests Section */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold flex items-center gap-2 text-gray-900 mb-6">
-              <Heart className="w-6 h-6 text-[#704630]" />
-              Centres d'intérêt
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {interests.map((interest, idx) => (
-                <span 
-                  key={idx}
-                  className="px-6 py-3 bg-white border border-gray-200 rounded-full text-gray-700 font-medium hover:bg-[#F8E8E8] hover:border-[#E6C0CB] hover:text-[#704630] transition-all shadow-sm"
-                >
-                  {interest}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>

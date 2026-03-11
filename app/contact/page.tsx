@@ -1,11 +1,13 @@
 // app/contact/page.tsx
 "use client";
 
+import { useLanguage } from "@/components/LanguageContext";
 import ContactForm from "@/components/ContactForm";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   return (
     <main 
       className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8"
@@ -17,18 +19,18 @@ export default function ContactPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get In <span className="text-red-700">Touch</span>
+            {t('contact_touch_title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+            {t('contact_touch_desc')}
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h2>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 h-full">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">{t('contact_info_title')}</h2>
               
               <div className="space-y-6">
                 {/* Email */}
@@ -37,7 +39,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-red-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t('contact_info_email_title')}</h3>
                     <p className="text-gray-600 group-hover:text-red-700 transition-colors">
                       fbaradi52@gmail.com
                     </p>
@@ -51,9 +53,9 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-gray-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Based In</h3>
-                    <p className="text-gray-600">Casablanca, Maroc</p>
-                    <p className="text-sm text-gray-500 mt-1">Available for remote work worldwide</p>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t('contact_info_location_title')}</h3>
+                    <p className="text-gray-600">{t('contact_info_location_value')}</p>
+                    <p className="text-sm text-gray-500 mt-1">{t('contact_info_location_desc')}</p>
                   </div>
                 </div>
 
@@ -63,16 +65,16 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-green-700" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1">{t('contact_info_phone_title')}</h3>
                     <p className="text-gray-600 group-hover:text-green-700 transition-colors">0626574046</p>
-                    <p className="text-sm text-gray-500 mt-1">Available for calls</p>
+                    <p className="text-sm text-gray-500 mt-1">{t('contact_info_phone_desc')}</p>
                   </div>
                 </a>
               </div>
 
               {/* Social Links */}
               <div className="mt-10 pt-8 border-t border-gray-200">
-                <h3 className="font-semibold text-gray-900 mb-4">Follow Me</h3>
+                <h3 className="font-semibold text-gray-900 mb-4">{t('contact_info_follow_title')}</h3>
                 <div className="flex gap-4">
                   {/* GitHub */}
                   <a 
@@ -114,9 +116,9 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Send Me a Message</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('contact_form_title')}</h2>
                 <p className="text-gray-600">
-                  Fill out the form below and I'll get back to you as soon as possible.
+                  {t('contact_form_desc')}
                 </p>
               </div>
               
@@ -134,10 +136,9 @@ export default function ContactPage() {
                     className="object-cover"
                   />
                 </div>
-                <h3 className="font-bold text-gray-900 mb-2">I'm Fatima Ezzahra & I can't wait to hear from you!</h3>
+                <h3 className="font-bold text-gray-900 mb-2">{t('contact_personal_title')}</h3>
                 <p className="text-gray-600">
-                  Every message brings me joy. Whether it's about Data Science, Business Intelligence, AI, or just saying hi -
-                  I'm excited to connect and help however I can. Your message will make my day!
+                  {t('contact_personal_desc')}
                 </p>
               </div>
             </div>
