@@ -49,8 +49,8 @@ export default function About() {
 
   const educationDE = [
     {
-      school: "Supemir Académie | Casablanca",
-      certification: "Formation JOBINTECH (SQL/PLSQL)",
+      school: "Supemir Akademie | Casablanca",
+      certification: "JOBINTECH-Weiterbildung (SQL/PLSQL)",
       year: "Februar 2026",
       icon: Zap,
     },
@@ -67,8 +67,8 @@ export default function About() {
       icon: BookOpen,
     },
     {
-      school: "Université Hassan II de Casablanca",
-      certification: "Formation C4EE (Cycle de l’emploi et l’entrepreneuriat)",
+      school: "Universität Hassan II Casablanca",
+      certification: "C4EE-Ausbildung (Zyklus für Beschäftigung und Unternehmertum)",
       year: "Juli 2024",
       icon: BookOpen,
     },
@@ -79,8 +79,8 @@ export default function About() {
       icon: GraduationCap,
     },
     {
-      school: "Lycée Allal Ben Abdellah, Casablanca",
-      certification: "Baccalauréat Sciences Mathématiques A option française",
+      school: "Gymnasium Allal Ben Abdellah, Casablanca",
+      certification: "Abitur Mathematische Wissenschaften A, französische Option",
       year: "2021–2022",
       icon: GraduationCap,
     },
