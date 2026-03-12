@@ -120,7 +120,7 @@ export const translations = {
   de: {
     // Hero
     greeting: "Hallo, ich bin",
-    role: "Data Analyst | Expertin für Business Intelligence & Modellierung",
+    role: "Datenanalystin | Expertin für Business Intelligence & Modellierung",
     hero_desc: "Als Datenspezialistin mit fundiertem Hintergrund in fundamentaler Mathematik verwandle ich komplexe Informationsflüsse in strategische Entscheidungshebel. Dreisprachig und mit fließenden Deutschkenntnissen bringe ich eine rigorose analytische Vision in Unternehmen ein, die in internationalen Kontexten tätig sind.",
     view_projects: "Meine Projekte ansehen",
     get_in_touch: "Kontaktieren",
@@ -140,7 +140,7 @@ export const translations = {
     skill_lang: "Sprachen & Frameworks",
     skill_data: "Daten & Künstliche Intelligenz",
     skill_db: "Datenbanken & Tools",
-    skill_soft: "Soft Skills",
+    skill_soft: "Soziale Kompetenzen",
     skill_soft_time: "Zeitmanagement",
     skill_soft_responsibility: "Verantwortung",
     skill_soft_teamwork: "Teamarbeit",
