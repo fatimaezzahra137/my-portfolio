@@ -109,7 +109,7 @@ export default function About() {
 
   const experienceDE = [
     {
-      title: "Data Analyst & SQL-Entwicklerin — Proximity Management Institute",
+      title: "Datenanalystin & SQL-Entwicklerin — Proximity Management Institute",
       description: "Entwicklung von SQL/PLSQL-Skripten unter Oracle und Integration von Generative AI-Lösungen zur Automatisierung von Analysen. Erstellung interaktiver Berichte in Power BI.",
       year: "Februar 2026",
       icon: Briefcase,

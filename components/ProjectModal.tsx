@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
-import { X, Target, Wrench, TrendingUp } from 'lucide-react';
+import { X, Target, Wrench, TrendingUp, Code2 } from 'lucide-react';
 
 // Définition de la structure détaillée d'un projet
 interface ProjectDetails {
@@ -13,6 +13,7 @@ interface ProjectDetails {
 
 interface Project {
   title: string;
+  technologies: string[];
   details?: ProjectDetails;
 }
 
@@ -60,6 +61,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </button>
 
         <h2 className="text-3xl font-bold text-[#704630] mb-6">{project.title}</h2>
+
+        {/* Compétences Clés (Technologies) */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-3 mb-3">
+            <Code2 className="text-[#704630]" />
+            {t('modal_skills')}
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech, i) => (
+              <span key={i} className="px-3 py-1 bg-[#F8E8E8] text-[#704630] rounded-full text-sm font-medium">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
 
         <div className="space-y-8">
           {/* Problème */}

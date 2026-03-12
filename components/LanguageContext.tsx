@@ -116,6 +116,7 @@ export const translations = {
 
     // Modal
     modal_close_aria: "Fermer la fenêtre modale",
+    modal_skills: "Compétences Clés",
   },
   de: {
     // Hero
@@ -219,6 +220,7 @@ export const translations = {
 
     // Modal
     modal_close_aria: "Modal schließen",
+    modal_skills: "Schlüsselkompetenzen",
   },
   en: {
     // Hero
@@ -322,6 +324,7 @@ export const translations = {
 
     // Modal
     modal_close_aria: "Close modal",
+    modal_skills: "Key Skills",
   }
 };
 

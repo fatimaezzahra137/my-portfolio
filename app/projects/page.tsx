@@ -26,6 +26,37 @@ interface Project {
 
 const projectsFR: Project[] = [
   {
+    id: 13, 
+    title: "Système Intelligent de Gestion de Don de Sang",
+    description: "Solution complète alliant gestion de base de données Oracle, dashboard interactif et IA pour optimiser la gestion des dons de sang.",
+    image: "/blood-donation-system.png",
+    github: "https://github.com/fatimaezzahra137/BloodDonation-System/tree/main",
+    technologies: ["Oracle SQL", "PL/SQL", "Python", "Streamlit", "XGBoost", "Machine Learning"], 
+    category: "Data Science & Database",
+    details: {
+      problem: {
+        title: "Problème (Objectif)",
+        content: "Ce projet de fin de formation (JobInTech) visait initialement à concevoir une structure de données solide. L'objectif a été élargi pour développer une solution technologique complète démontrant l'évolution d'une expertise en gestion de base de données vers la Data Science et le développement d'applications intelligentes."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Architecture Oracle Avancée : Implémentation de Packages, Triggers et Procédures stockées pour automatiser la logique métier (vérification de compatibilité sanguine, calcul automatique des alertes de stock).",
+          "Développement Full-Stack Data : Création d'un backend Python connecté en temps réel à Oracle via `oracledb`, pilotant un tableau de bord interactif Streamlit.",
+          "Intelligence Artificielle : Intégration de modèles de Machine Learning pour le Forecasting des stocks (Prophet) et la classification des risques donneurs (XGBoost, Scikit-Learn)."
+        ]
+      },
+      result: {
+        title: "Résultat",
+        points: [
+          "Solution Intégrée : Transformation d'un projet de base de données en une application décisionnelle complète.",
+          "Outil d'Aide à la Décision : Mise en place d'un pilotage interactif permettant de visualiser les stocks critiques et de prédire les besoins futurs.",
+          "Double Expertise : Démonstration technique réussie alliant la rigueur du SQL/PL-SQL à la puissance de l'analyse prédictive."
+        ]
+      }
+    },
+  },
+ {
     id: 1,
     title: "Cinema Analysis Dashboard",
     description: "Tableau de bord interactif pour l'analyse des tendances cinématographiques et des données du box-office.",
@@ -423,6 +454,37 @@ const projectsFR: Project[] = [
 
 const projectsEN: Project[] = [
   {
+    id: 13, 
+    title: "Intelligent Blood Donation Management System",
+    description: "Complete solution combining Oracle database management, interactive dashboard, and AI to optimize blood donation management.",
+    image: "/blood-donation-system.png",
+    github: "https://github.com/fatimaezzahra137/BloodDonation-System/tree/main",
+    technologies: ["Oracle SQL", "PL/SQL", "Python", "Streamlit", "XGBoost", "Machine Learning"],
+    category: "Data Science & Database",
+    details: {
+      problem: {
+        title: "Problem (Objective)",
+        content: "This end-of-training project (JobInTech) initially aimed to design a solid data structure. The objective was expanded to develop a complete technological solution demonstrating the evolution from database management expertise to Data Science and intelligent application development."
+      },
+      action: {
+        title: "Action",
+        points: [
+          "Advanced Oracle Architecture: Implementation of Packages, Triggers, and Stored Procedures to automate business logic (blood compatibility verification, automatic stock alert calculation).",
+          "Full-Stack Data Development: Creation of a Python backend connected in real-time to Oracle via `oracledb`, driving an interactive Streamlit dashboard.",
+          "Artificial Intelligence: Integration of Machine Learning models for stock Forecasting (Prophet) and donor risk classification (XGBoost, Scikit-Learn)."
+        ]
+      },
+      result: {
+        title: "Result",
+        points: [
+          "Integrated Solution: Transformed a database project into a complete decision-making application.",
+          "Decision Support Tool: Implemented interactive monitoring to visualize critical stocks and predict future needs.",
+          "Dual Expertise: Successful technical demonstration combining the rigor of SQL/PL-SQL with the power of predictive analysis."
+        ]
+      }
+    },
+  },
+ {
     id: 1,
     title: "Cinema Analysis Dashboard",
     description: "Interactive dashboard for analyzing film trends and box-office data.",
@@ -820,6 +882,37 @@ const projectsEN: Project[] = [
 
 const projectsDE: Project[] = [
   {
+    id: 13, 
+    title: "Intelligentes Blutspende-Managementsystem",
+    description: "Komplettlösung, die Oracle-Datenbankmanagement, interaktives Dashboard und KI kombiniert, um das Blutspendemanagement zu optimieren.",
+    image: "/blood-donation-system.png",
+    github: "https://github.com/fatimaezzahra137/BloodDonation-System/tree/main",
+    technologies: ["Oracle SQL", "PL/SQL", "Python", "Streamlit", "XGBoost", "Machine Learning"],
+    category: "Data Science & Datenbanken",
+    details: {
+      problem: {
+        title: "Problem (Ziel)",
+        content: "Dieses Abschlussprojekt (JobInTech) zielte ursprünglich auf den Entwurf einer soliden Datenstruktur ab. Das Ziel wurde erweitert, um eine vollständige technologische Lösung zu entwickeln, die die Entwicklung von Datenbankmanagement-Expertise hin zu Data Science und intelligenter Anwendungsentwicklung demonstriert."
+      },
+      action: {
+        title: "Maßnahmen",
+        points: [
+          "Fortgeschrittene Oracle-Architektur: Implementierung von Paketen, Triggern und gespeicherten Prozeduren zur Automatisierung der Geschäftslogik (Überprüfung der Blutkompatibilität, automatische Berechnung von Bestandsalarmen).",
+          "Full-Stack Data Development: Erstellung eines Python-Backends, das über `oracledb` in Echtzeit mit Oracle verbunden ist und ein interaktives Streamlit-Dashboard steuert.",
+          "Künstliche Intelligenz: Integration von Machine-Learning-Modellen für die Bestandsvorhersage (Prophet) und die Klassifizierung von Spenderrisiken (XGBoost, Scikit-Learn)."
+        ]
+      },
+      result: {
+        title: "Ergebnis",
+        points: [
+          "Integrierte Lösung: Transformation eines Datenbankprojekts in eine vollständige Entscheidungsanwendung.",
+          "Entscheidungshilfetool: Implementierung einer interaktiven Steuerung zur Visualisierung kritischer Bestände und Vorhersage zukünftiger Bedürfnisse.",
+          "Doppelte Expertise: Erfolgreiche technische Demonstration, die die Strenge von SQL/PL-SQL mit der Kraft der prädiktiven Analyse verbindet."
+        ]
+      }
+    },
+  },
+ {
     id: 1,
     title: "Kino-Analyse-Dashboard",
     description: "Interaktives Dashboard zur Analyse von Kinotrends und Box-Office-Daten.",
