@@ -1,7 +1,7 @@
 "use client";
 
 import { 
-  Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages
+  Code2, Zap, BookOpen, GraduationCap, Briefcase, Languages, Bot
 } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
@@ -94,6 +94,12 @@ export default function About() {
       icon: Briefcase,
     },
     {
+      title: "Professeure en Informatique et Robotique — Groupe Scolaire Khawater",
+      description: "Enseignement de l'informatique et de la robotique éducative. Initiation à la programmation, encadrement de projets techniques et développement de la pensée algorithmique chez les élèves.",
+      year: "Septembre 2024",
+      icon: Bot,
+    },
+    {
       title: "Analyste de Données Stagiaire — HOUSSNI JOB",
       description: "Modélisation et création de bases de données structurées pour l'optimisation de la gestion des CV et du sourcing candidat.",
       year: "Octobre 2024",
@@ -113,6 +119,12 @@ export default function About() {
       description: "Entwicklung von SQL/PLSQL-Skripten unter Oracle und Integration von Generative AI-Lösungen zur Automatisierung von Analysen. Erstellung interaktiver Berichte in Power BI.",
       year: "Februar 2026",
       icon: Briefcase,
+    },
+    {
+      title: "Informatik- und Robotiklehrerin — Groupe Scolaire Khawater",
+      description: "Unterricht in Informatik und Bildungsrobotik. Einführung in die Programmierung, Betreuung technischer Projekte und Förderung des algorithmischen Denkens bei Schülern.",
+      year: "September 2024",
+      icon: Bot,
     },
     {
       title: "Datenanalystin (Praktikantin) — HOUSSNI JOB",
@@ -173,6 +185,12 @@ export default function About() {
       description: "Development of SQL/PLSQL scripts under Oracle and integration of Generative AI solutions for analysis automation. Design of interactive reports on Power BI.",
       year: "February 2026",
       icon: Briefcase,
+    },
+    {
+      title: "Computer Science and Robotics Teacher — Groupe Scolaire Khawater",
+      description: "Teaching computer science and educational robotics. Introduction to programming, supervision of technical projects, and development of algorithmic thinking in students.",
+      year: "September 2024",
+      icon: Bot,
     },
     {
       title: "Data Analyst Intern — HOUSSNI JOB",

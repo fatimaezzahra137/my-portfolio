@@ -1350,12 +1350,12 @@ export default function ProjectsPage() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* صورة المشروع */}
-                <div className="relative h-56 w-full">
+                <div className="relative h-56 w-full bg-gray-50 border-b border-gray-100">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-contain p-4"
+                  className="object-contain p-1"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute top-4 left-4">
