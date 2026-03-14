@@ -5,6 +5,7 @@ import {
   Database,
   Wrench,
   Brain,
+  Users,
 } from "lucide-react";
 import { useLanguage } from "./LanguageContext";
 
@@ -19,11 +20,14 @@ export default function Skills() {
         "Python",
         "Java",
         "C",
-        "SQL",
         "Flask",
         "Django",
         "Streamlit",
         "HTML/CSS",
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
       ],
     },
     {
@@ -38,24 +42,34 @@ export default function Skills() {
         "Machine Learning",
         "PCA",
         "XGBoost",
+        "Power BI",
       ],
     },
     {
-      name: t('skill_db'),
+      name: t('skill_db_only'),
       icon: Database,
       skills: [
+        "SQL",
+        "PL/SQL",
         "MySQL",
         "T-SQL",
+        "Oracle",
+      ],
+    },
+    {
+      name: t('skill_tools'),
+      icon: Wrench,
+      skills: [
         "UML",
         "VS Code",
         "Eclipse",
-        "Oracle",
         "GitHub",
+        "Vercel",
       ],
     },
     {
       name: t('skill_soft'),
-      icon: Wrench,
+      icon: Users,
       skills: [
         t('skill_soft_time'),
         t('skill_soft_responsibility'),
