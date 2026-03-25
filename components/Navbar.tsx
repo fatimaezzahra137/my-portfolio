@@ -15,7 +15,7 @@ export default function Navbar() {
           {/* Logo - Teswirtak */}
           <Link
             href="/"
-            className="flex items-center space-x-2 font-bold text-base sm:text-xl hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-2 font-bold text-xl hover:opacity-80 transition-opacity"
             aria-label="Home"
           >
             {/* Remplacer YS b photo */}
@@ -28,7 +28,7 @@ export default function Navbar() {
                 className="object-cover"
               />
             </div>
-            <span className="text-[#704630]">Fatima Ezzahra BARRADI</span>
+            <span className="hidden md:block text-[#704630]">Fatima Ezzahra BARRADI</span>
           </Link>
 
           {/* Navigation Links */}
